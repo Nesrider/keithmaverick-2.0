@@ -2,12 +2,7 @@
   "dependencies": {
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-router": "^2.4.0",
-    "classnames": "^2.2.5",
-    "react-redux": "^4.4.5",
-    "redux": "^3.5.1",
-    "es6-shim": "^0.35.0",
-    "todomvc-app-css": "^2.0.4"
+    "react-router": "^2.4.0"
   },
   "devDependencies": {
     "react-addons-test-utils": "^15.0.1",
@@ -15,8 +10,6 @@
     "@types/react-dom": "^0.14.17",
     "@types/react-addons-test-utils": "^0.14.15",
     "@types/react-router": "^2.0.37",
-    "@types/classnames": "^0.0.31",
-    "@types/react-redux": "^4.4.32",
     "del": "^2.0.2",
     "gulp": "gulpjs/gulp#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
     "gulp-hub": "frankwallis/gulp-hub#d461b9c700df9010d0a8694e4af1fb96d9f38bf4",
