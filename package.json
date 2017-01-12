@@ -69,6 +69,10 @@
       "browser": true,
       "jasmine": true
     },
+    "rules":{
+        "indent": [2, "tab"],
+        "react/jsx-indent-props": [2, "tab"]
+    },
     "extends": [
       "xo-react/space",
       "xo-space/esnext"

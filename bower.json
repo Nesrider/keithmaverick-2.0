@@ -1,0 +1,21 @@
+{
+  "name": "keithmaverick-frontend",
+  "description": "frontend development of keithmaverick.com",
+  "main": "/src/index.html",
+  "authors": [
+    "Keith Yeung <kmyeung@andrew.cmu.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Nesrider/keithmaverick-2.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
