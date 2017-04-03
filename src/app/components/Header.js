@@ -3,20 +3,19 @@ import React, {Component} from 'react';
 import './Header.scss';
 import {getSubjects} from '../constants/dbConstants';
 import $ from 'jquery';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export class Header extends Component {
 
 	handlePopNav() {
-		console.log("In here");
 		if ($('.navPop').hasClass('navPopped')) {
 			$('.navPop').removeClass('navPopped');
+			$('.fa-bars').removeClass('navMenuPopped');
 			$('.navPop').animate({
 				right: '-175px'
 			});
 		} else {
-			console.log("In here2");
 			$('.navPop').addClass('navPopped');
+			$('.fa-bars').addClass('navMenuPopped');
 			$('.navPop').animate({
 				right: '0px'
 			});
@@ -24,43 +23,37 @@ export class Header extends Component {
 	}
 
 	setResult(result) {
-		this.subjects = result.SUBJECT;
-		console.log(result.SUBJECT);
-		const newDate = new Date();
-
-		console.log(newDate.getTime() - this.nowTime);
+		this.setState({subjects: result.SUBJECT});
+		console.log(result);
 	}
 
 	constructor(props) {
 		super(props);
+		this.state = {
+			subjects: []
+		};
 
-		const date = new Date();
-		this.nowTime = date.getTime();
 		this.subjects = [];
 		$.ajaxSetup({async: false});
-
-		/* $.getJSON(getSubjects,
-			data => this.setResult(data)
-		); */
-
-		console.log(this.subjects);
 	}
 
-	render() {
+	componentDidMount() {
 		$.ajax({
 			url: getSubjects,
 			datatype: 'jsonp',
 			success: response =>
 				this.setResult(response)
 		});
+	}
 
-		const subjects = this.subjects.map(item =>
+	render() {
+		const subjects = this.state.subjects.map(item =>
 			(<li key={item.SUBJECT_ID} className={' tab col col-xs-2 col-sm-2 col-mid-2 col-lg-2'}>
-				<h6>{item.SUBJECT_NAME}</h6>
+				<h6 >{item.SUBJECT_NAME}</h6>
 			</li>)
 		);
 
-		const subVertical = this.subjects.map(item =>
+		const subVertical = this.state.subjects.map(item =>
 			(<li key={item.SUBJECT_ID} className={'sub'} >
 				<h6>{item.SUBJECT_NAME}</h6>
 			</li>)
@@ -76,7 +69,7 @@ export class Header extends Component {
 		);
 
 		return (
-			<div>
+			<div className={'headerParent'}>
 				<header className={'container'}>
 					<div className={'row'}>
 						<div className={'col col-xs-6 col-sm-4 col-mid-3 col-lg-3 title'}>
@@ -87,21 +80,28 @@ export class Header extends Component {
 						</ul>
 						{social}
 						<div className={'navMenu col-xs-5 col-sm-5'}>
-							<div className={'col col-xs-6 col-sm-6'}></div>
-							<i className={'fa fa-bars col col-xs-2 col-sm-2'} aria-hidden="true" onClick={this.handlePopNav}></i>
+							<div className={'col col-xs-5 col-sm-5'}></div>
+							<div className={'col col-xs-2 col-sm-2'}>
+								<i className={'fa fa-bars'} aria-hidden="true" onClick={this.handlePopNav}></i>
+							</div>
 						</div>
 
 					</div>
 				</header>
-				<ReactCSSTransitionGroup>
-					<div className={'navPop'}>
-						<ul>
-							{subVertical}
-						</ul>
+				<div className={'navPop'}>
+					<div className={'topNav'}>
 					</div>
-				</ReactCSSTransitionGroup>
+
+					<ul>
+						{subVertical}
+					</ul>
+				</div>
 			</div>
 		);
 	}
 
 }
+
+Header.propTypes = {
+};
+

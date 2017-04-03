@@ -1,10 +1,14 @@
 $fa-font-path: "/bower_components/font-awesome/fonts";
 @import "/bower_components/font-awesome/scss/font-awesome";
 
-body {
+html, body {
   background-color: lightgrey;
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
 }
 
 .container {
 	width: 100%;
 }
+

@@ -1,0 +1,61 @@
+@media(max-width: 768px) {
+	.blockTitle {
+		font-size: 17px !important;
+	}
+
+	.blockDesc {
+		font-size: 13px !important;
+
+	}
+
+	.blockText {
+		width: 325px !important;
+	}
+
+	.blockRight {
+		left: 0px !important;
+	}
+}
+
+@media(max-height: 600px) {
+	.homeBlock {
+		height: 300px !important;
+	}
+
+}
+
+.homeBlock {
+	height: 32vh;
+	background-color: #434447;
+	position: relative;
+}
+
+.blockTitle {
+	color: white;
+	font-size: 25px;
+
+}
+
+.blockText {
+	position: absolute;
+	bottom: 70px;
+	margin-left: 25px;
+	width: 400px;
+}
+
+
+.blockRight {
+	right: 0px;
+	margin-right: 25px;
+}
+
+.blockDesc {
+	color: grey;
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.homeBlocks {
+	height: 100vh;
+	overflow: scroll;
+}

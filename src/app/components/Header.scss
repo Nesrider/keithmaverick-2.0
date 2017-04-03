@@ -53,6 +53,8 @@
 	color: #555;
 }
 
+
+
 .sub:hover {
 	color: #aaa;
 }
@@ -66,7 +68,7 @@ header .col {
 
 header {
 	position: absolute;
-	background-color: grey;
+	background-color: #caccd1;
 	bottom: 0;
 	z-index:100;
 }
@@ -85,7 +87,6 @@ header .fa {
 }
 
 .navMenu {
-	margin-top: 5px;
 	display: none;
 }
 
@@ -96,9 +97,21 @@ header .fa {
 	bottom: 65px;
 }
 
+.navPop .topNav {
+	position: absolute;
+	top: 10px;
+}
+
 .navPop li {
 	margin: 20px;
 	text-align: left;
+}
+
+.navPop .topNav object{
+	height: 200px;
+	fill: #ddd;
+	display: block;
+	margin: auto;
 }
 
 .navPop {
@@ -112,6 +125,17 @@ header .fa {
 	display: none;
 }
 
+.navMenuPopped {
+	color: #eee;
+	background-color: #666 !important;
+}
 
+.navMenuPopped:hover {
+	color: #bbb;
+}
 
-
+.fa-bars {
+	border-radius: 3px;
+	padding: 5px;
+	background-color: grey;
+}
