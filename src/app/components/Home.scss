@@ -24,10 +24,27 @@
 
 }
 
+@media(min-height: 1200px) {
+	.blockTitle {
+		font-size: 35px !important;
+	}
+
+	.blockDesc {
+		font-size: 20px !important;
+	}
+
+	.blockText {
+		width: 450px !important;
+	}
+}
+
 .homeBlock {
-	height: 32vh;
+	height: 31.5vh;
 	background-color: #434447;
 	position: relative;
+	opacity: 1;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .blockTitle {
@@ -41,6 +58,34 @@
 	bottom: 70px;
 	margin-left: 25px;
 	width: 400px;
+}
+
+.blockGradient {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: none; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,rgba(40,40,40,0),rgba(40,40,40,1)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(40,40,40,0),rgba(40,40,40,1)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(40,40,40,0),rgba(40,40,40,1)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(40,40,40,0), rgba(40,40,40,1)); /*Standard*/
+}
+
+.blockColor {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #282828;
+	opacity: 0.7;
+	-webkit-transition: opacity 0.3s ease-in;
+	-moz-transition: opacity 0.3s ease-in;
+	-o-transition: opacity 0.3s ease-in;
+	transition: opacity 0.3s ease-in;
+	
+}
+
+.blockText:hover .blockColor, .blockColor:hover {
+	opacity: 0;
 }
 
 

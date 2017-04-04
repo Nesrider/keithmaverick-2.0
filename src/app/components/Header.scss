@@ -41,6 +41,24 @@
 	}
 }
 
+@media(min-height:1200px) {
+	header {
+		padding-bottom: 15px;
+	}
+
+	h2 {
+		font-size: 40px;
+	}
+
+	header h6 {
+		font-size: 17px !important;
+	}
+
+	header .fa {
+		font-size: 30px !important;
+	}
+}
+
 .title {
 	text-align: left;
 }
@@ -67,10 +85,11 @@ header .col {
 }
 
 header {
-	position: absolute;
+	position: fixed;
 	background-color: #caccd1;
 	bottom: 0;
 	z-index:100;
+	float: clear;
 }
 
 header h6 {
@@ -79,7 +98,7 @@ header h6 {
 
 header .fa {
 	margin-top: 5px;
-	font-size: 20px !important;
+	font-size: 20px;
 }
 
 .socialMedia {
@@ -134,8 +153,18 @@ header .fa {
 	color: #bbb;
 }
 
+.navBackground {
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	opacity: 0;
+	position: absolute;
+	z-index: 98;
+	display: none;
+}
+
 .fa-bars {
 	border-radius: 3px;
 	padding: 5px;
-	background-color: grey;
+	background-color: #caccd1;
 }

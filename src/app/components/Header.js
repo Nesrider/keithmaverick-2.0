@@ -12,19 +12,28 @@ export class Header extends Component {
 			$('.fa-bars').removeClass('navMenuPopped');
 			$('.navPop').animate({
 				right: '-175px'
+			}, {queue: false});
+			$('.navBackground').animate({
+				opacity: '0'
+			}, {queue: false,
+				complete: () =>
+				$('.navBackground').css("display", "none")
 			});
 		} else {
 			$('.navPop').addClass('navPopped');
 			$('.fa-bars').addClass('navMenuPopped');
+			$('.navBackground').css("display", "block");
 			$('.navPop').animate({
 				right: '0px'
-			});
+			}, {queue: false});
+			$('.navBackground').animate({
+				opacity: '0.7'
+			}, {queue: false});
 		}
 	}
 
 	setResult(result) {
 		this.setState({subjects: result.SUBJECT});
-		console.log(result);
 	}
 
 	constructor(props) {
@@ -33,8 +42,17 @@ export class Header extends Component {
 			subjects: []
 		};
 
+		this.removePop = this.removePop.bind(this);
 		this.subjects = [];
 		$.ajaxSetup({async: false});
+		$(window).resize(this.removePop);
+	}
+
+	removePop() {
+		const documentWidth = $(document).width();
+		if ($('.navPop').hasClass('navPopped') && documentWidth > 768) {
+			this.handlePopNav();
+		}
 	}
 
 	componentDidMount() {
@@ -46,17 +64,30 @@ export class Header extends Component {
 		});
 	}
 
+	subject(item, changeSub) {
+		const change = () => changeSub(item);
+		return (<li key={item.SUBJECT_ID} className={' tab col col-xs-2 col-sm-2 col-mid-2 col-lg-2'} onClick={change}>
+			<h6 >{item.SUBJECT_NAME}</h6>
+		</li>);
+	}
+
+	subVertical(item, changeSub) {
+		const change = () => changeSub(item);
+		return (<li key={item.SUBJECT_ID} className={'sub'} onClick={change}>
+			<h6>{item.SUBJECT_NAME}</h6>
+		</li>);
+	}
+
 	render() {
+		const subject = this.subject;
+		const changeSub = this.props.changeSub;
 		const subjects = this.state.subjects.map(item =>
-			(<li key={item.SUBJECT_ID} className={' tab col col-xs-2 col-sm-2 col-mid-2 col-lg-2'}>
-				<h6 >{item.SUBJECT_NAME}</h6>
-			</li>)
+			subject(item, changeSub)
 		);
 
+		const subVertFn = this.subVertical;
 		const subVertical = this.state.subjects.map(item =>
-			(<li key={item.SUBJECT_ID} className={'sub'} >
-				<h6>{item.SUBJECT_NAME}</h6>
-			</li>)
+			subVertFn(item, changeSub)
 		);
 
 		const social = (
@@ -96,6 +127,8 @@ export class Header extends Component {
 						{subVertical}
 					</ul>
 				</div>
+				<div className="navBackground">
+				</div>
 			</div>
 		);
 	}
@@ -103,5 +136,6 @@ export class Header extends Component {
 }
 
 Header.propTypes = {
+	changeSub: React.PropTypes.func
 };
 
