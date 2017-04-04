@@ -67,10 +67,31 @@
 	margin-top: 15px;
 }
 
-.tab:hover, .fa:hover{
+.tab:hover, .fa:hover, .home:hover{
 	color: #555;
 }
 
+a {
+	color: #333;
+}
+
+a .sub {
+	color: #ddd
+}
+
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+	color: inherit;
+}
 
 
 .sub:hover {
@@ -135,7 +156,6 @@ header .fa {
 
 .navPop {
 	background-color: #444;
-	color: #ddd;
 	height: 100vh;
 	width: 175px;
 	position: absolute;

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Header} from '../components/Header';
-import {MainViewer} from '../components/MainViewer';
 
 export class app extends Component {
 
@@ -31,7 +30,7 @@ export class app extends Component {
 		return (
 			<div>
 				<Header changeSub={this.onhandleChangeSub} curSub={this.props.subject} parentSub={this.updateSubjects}/>
-				<MainViewer/>
+				{this.props.children}
 			</div>
 		);
 	}
@@ -45,5 +44,6 @@ app.defaultProps = {
 
 app.propTypes = {
 	subject: React.PropTypes.number,
-	subjects: React.PropTypes.node
+	subjects: React.PropTypes.node,
+	children: React.PropTypes.node
 };

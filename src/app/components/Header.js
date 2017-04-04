@@ -1,5 +1,6 @@
 'use strict';
 import React, {Component} from 'react';
+import {Link} from 'react-router';
 import './Header.scss';
 import {getSubjects} from '../constants/dbConstants';
 import $ from 'jquery';
@@ -46,6 +47,8 @@ export class Header extends Component {
 		this.subjects = [];
 		$.ajaxSetup({async: false});
 		$(window).resize(this.removePop);
+
+		this.subVertical = this.subVertical.bind(this);
 	}
 
 	removePop() {
@@ -66,16 +69,19 @@ export class Header extends Component {
 
 	subject(item, changeSub) {
 		const change = () => changeSub(item);
-		return (<li key={item.SUBJECT_ID} className={' tab col col-xs-2 col-sm-2 col-mid-2 col-lg-2'} onClick={change}>
-			<h6 >{item.SUBJECT_NAME}</h6>
-		</li>);
+		return (<Link to={item.SUBJECT_LINK} key={item.SUBJECT_ID}>
+			<li className={' tab col col-xs-2 col-sm-2 col-mid-2 col-lg-2'} onClick={change}>
+				<h6 >{item.SUBJECT_NAME}</h6>
+			</li>
+		</Link>);
 	}
 
-	subVertical(item, changeSub) {
-		const change = () => changeSub(item);
-		return (<li key={item.SUBJECT_ID} className={'sub'} onClick={change}>
-			<h6>{item.SUBJECT_NAME}</h6>
-		</li>);
+	subVertical(item) {
+		return (<Link to={item.SUBJECT_LINK} key={item.SUBJECT_ID}>
+			<li className={'sub'} onClick={this.handlePopNav}>
+				<h6>{item.SUBJECT_NAME}</h6>
+			</li>
+		</Link>);
 	}
 
 	render() {
@@ -85,9 +91,8 @@ export class Header extends Component {
 			subject(item, changeSub)
 		);
 
-		const subVertFn = this.subVertical;
 		const subVertical = this.state.subjects.map(item =>
-			subVertFn(item, changeSub)
+			this.subVertical(item)
 		);
 
 		const social = (
@@ -104,7 +109,9 @@ export class Header extends Component {
 				<header className={'container'}>
 					<div className={'row'}>
 						<div className={'col col-xs-6 col-sm-4 col-mid-3 col-lg-3 title'}>
-							<h2>{'Keith Maverick'}</h2>
+							<Link to="/" className="home">
+								<h2>{'Keith Maverick'}</h2>
+							</Link>
 						</div>
 						<ul className={'col col-xs-1 col-sm-8 col-mid-6 col-lg-6 '}>
 							{subjects}

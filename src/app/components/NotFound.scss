@@ -1,0 +1,14 @@
+.NotFoundBox {
+	border: 5px solid #333;
+	text-align: center;
+	padding: 20px;
+	position: fixed;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.NotFoundPage {
+	height: 100vh;
+	width: 100vw;
+	background-color: #fff;
+}
