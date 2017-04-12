@@ -49,6 +49,7 @@ export class Header extends Component {
 		$(window).resize(this.removePop);
 
 		this.subVertical = this.subVertical.bind(this);
+		this.handleHome = this.handleHome.bind(this);
 	}
 
 	removePop() {
@@ -84,6 +85,12 @@ export class Header extends Component {
 		</Link>);
 	}
 
+	handleHome() {
+		if ($('.navPop').hasClass('navPopped')) {
+			this.handlePopNav();
+		}
+	}
+
 	render() {
 		const subject = this.subject;
 		const changeSub = this.props.changeSub;
@@ -109,7 +116,7 @@ export class Header extends Component {
 				<header className={'container'}>
 					<div className={'row'}>
 						<div className={'col col-xs-6 col-sm-4 col-mid-3 col-lg-3 title'}>
-							<Link to="/" className="home">
+							<Link to="/" className="home" onClick={this.handleHome}>
 								<h2>{'Keith Maverick'}</h2>
 							</Link>
 						</div>

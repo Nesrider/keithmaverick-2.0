@@ -1,5 +1,112 @@
+@media(min-height: 1000px) {
+	.aboutText {
+		font-size: 20px !important;
+	}
+
+	.aboutMainName {
+		font-size: 40px !important;
+	}
+
+	.aboutBold {
+		font-size: 20px !important;
+	}
+
+	.aboutSubName {
+		font-size: 25px !important;
+	}
+
+}
+
+.containerName {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.containerDesc {
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+
 .aboutPage {
-	height: 100vh;
-	width: 100vw;
-	background-color: red;
+	height: 66vh;
+	background-color: #333;
+	overflow: scroll;
+}
+
+.aboutBox {
+	background-color: #222;
+	border: 0.1px solid #111;
+	margin-top: 20px;
+	margin-bot: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-right: 30px;
+	border-radius: 3px;
+}
+
+.aboutBoxCol {
+	background-color: #222;
+	border: 0.1px solid #111;
+	margin-top: 20px;
+	margin-bot: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border-radius: 3px;
+	display: block;;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.aboutSkill {
+	float: left;
+	margin-left: 15px;
+}
+
+.columns {
+  -moz-column-count: 3;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 20px;
+  column-count: 3;
+  column-gap: 20px;
+}
+
+.aboutSkills {
+	list-style-type: square;
+	padding-left: 20px;
+}
+
+.aboutText{
+	color: #888;
+	font-weight: 200;
+	letter-spacing: 0.1px;
+	font-size: 13px;
+}
+
+.aboutTextTitle {
+	line-height: 17px;
+}
+
+
+.aboutName {
+	padding-left: 60px;
+	border-radius: 0;
+}
+
+.aboutMainName {
+	font-size: 35px;
+	color: white;
+}
+
+.aboutBold {
+	font-size: 17px;	
+}
+
+.aboutSubName {
+	color: #888;
+	font-weight: 200;
+	letter-spacing: 0.1px;
+	font-size: 16px;
 }
