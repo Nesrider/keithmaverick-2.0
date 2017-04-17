@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './About.scss';
-import {aboutContent} from '../constants/aboutConstants';
+import {aboutContent, aboutPic} from '../constants/aboutConstants';
 
 export class About extends Component {
 
@@ -49,7 +49,7 @@ export class About extends Component {
 		);
 
 		return (
-			<div>
+			<div className="container">
 				<div className="container aboutPage">
 					<div className="container containerName ">
 						<div className="row">
@@ -99,6 +99,7 @@ export class About extends Component {
 					</div>
 				</div>
 				<div className="container aboutImg">
+					<img src={aboutPic}/>
 				</div>
 			</div>
 		);

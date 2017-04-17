@@ -1,0 +1,50 @@
+.projectBlock img {
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+
+}
+
+.projectBlock {
+	margin-bottom: 6px;
+}
+
+.projectBlock:hover .projectBlockImg {
+
+}
+
+.projectBlock:hover .projectTitle {
+	color: #bbb;
+}
+
+.projectBlockImg {
+	height: 23vh;
+	overflow: hidden;
+	background-color: black;
+	position: relative;
+	border-radius: 5px;
+	-webkit-box-shadow: 2px 2px 11px 0px #222;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    2px 2px 11px 0px #222;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         2px 2px 11px 0px #222;
+  -webkit-transition: border 0.2s ease;
+  -moz-transition: border 0.2s ease;
+  -o-transition: border 0.2s ease;
+  transition: border 0.2s ease;
+}
+
+.projectTitle {
+	color: #888;
+	font-size: 14px;
+	padding-right: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	-webkit-transition: color 0.2s ease;
+  -moz-transition: color 0.2s ease;
+  -o-transition: color 0.2s ease;
+  transition: color 0.2s ease;
+}

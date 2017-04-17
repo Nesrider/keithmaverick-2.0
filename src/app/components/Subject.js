@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {getImagesBySubId, getProjectsBySubId} from '../constants/dbConstants';
 import {ProjectThumbnail} from './ProjectThumbnail';
+import {ProjectImage} from './ProjectImage';
+import {Link} from 'react-router';
 import "./Subject.scss";
 import $ from 'jquery';
 
@@ -11,7 +13,8 @@ export class Subject extends Component {
 		this.state = {
 			subProjects: null,
 			subImages: null,
-			numPerRow: 4
+			numPerRow: 4,
+			curLocation: null
 		};
 	}
 
@@ -47,6 +50,10 @@ export class Subject extends Component {
 			success: response =>
 				this.setProjects(response)
 		});
+
+		this.setState({
+			curLocation: this.context.location.pathname
+		});
 	}
 
 	getProjectName(projectId) {
@@ -58,6 +65,7 @@ export class Subject extends Component {
 	}
 
 	buildProjects() {
+		const curLocation = this.state.curLocation;
 		const subImages = this.state.subImages;
 		const numPerRow = this.state.numPerRow;
 		const output = [];
@@ -76,10 +84,12 @@ export class Subject extends Component {
 
 		if (isAlbumStyle) {
 			pushCount += 1;
-			console.log(`PUSH COUNT: ${pushCount}`);
 			output.push(
 				<div key={-1}>
-					{this.getProjectName(curProjectId)}
+					<div className="projectName">
+						{this.getProjectName(curProjectId)}
+					</div>
+					<hr/>
 				</div>
 			);
 		}
@@ -90,17 +100,18 @@ export class Subject extends Component {
 			const curImageProjectId = subImages[i].PROJECT_ID;
 			const curImageBack = subImages[i].IMAGE_BACK;
 			const curImageName = subImages[i].IMAGE_NAME;
-			const curThumbnail = (<ProjectThumbnail key={i} thumbnail={curImageBack} projectName={curImageName}/>);
+			const curThumbnail = (
+				<Link key={i} to={`${curLocation}/${i}`}>
+					<ProjectThumbnail thumbnail={curImageBack} projectName={curImageName}/>
+				</Link>
+			);
 
 			if (row.length < numPerRow && (curProjectId === curImageProjectId || !isAlbumStyle)) {
 				row.push(curThumbnail);
-				console.log("IF STATEMENT");
 			} else if (row.length < numPerRow && curProjectId !== curImageProjectId) {
 				curProjectId = curImageProjectId;
 
-				console.log("IF ELSE STATEMENT");
 				pushCount += 1;
-				console.log(`PUSH COUNT: ${pushCount}`);
 				output.push((
 					<div key={i + subLength} className="row">
 						{row}
@@ -108,18 +119,18 @@ export class Subject extends Component {
 				));
 
 				pushCount += 1;
-				console.log(`PUSH COUNT: ${pushCount}`);
 				output.push((
 					<div key={i + (subLength * 2)}>
-						{this.getProjectName(curProjectId)}
+						<div className="projectName">
+							{this.getProjectName(curProjectId)}
+						</div>
+						<hr/>
 					</div>
 				));
 
 				row = [curThumbnail];
 			} else {
-				console.log("ELSE STATEMENT");
 				pushCount += 1;
-				console.log(`PUSH COUNT: ${pushCount}`);
 				output.push((
 					<div key={i + subLength} className="row">
 						{row}
@@ -129,9 +140,7 @@ export class Subject extends Component {
 			}
 
 			if (i === (subLength - 1)) {
-				console.log("OUT STATEMENT");
 				pushCount += 1;
-				console.log(`PUSH COUNT: ${pushCount}`);
 				output.push((
 					<div key={i + subLength * 3} className="row">
 						{row}
@@ -144,16 +153,38 @@ export class Subject extends Component {
 			return 1;
 		}
 
-		console.log(output);
 		return output;
+	}
+
+	buildImage() {
+		const curImage = this.props.curImage;
+
+		if (curImage === undefined) {
+			return (<div></div>);
+		}
+
+		const index = parseInt(this.props.curImage);
+		const imageObj = this.state.subimages[index];
+		return (
+			<div>
+				<ProjectImage imageObject={imageObj}/>
+			</div>
+		);
 	}
 
 	render() {
 		const projects = this.buildProjects();
 
 		return (
-			<div>
+			<div className="container">
+				<div className="container projectImage">
+				</div>
 				<div className="container Subject">
+					<div className="row subjectName">
+						<div className="col">
+							{this.props.subjectName}
+						</div>
+					</div>
 					{projects}
 				</div>
 			</div>
@@ -164,5 +195,12 @@ export class Subject extends Component {
 
 Subject.propTypes = {
 	subjectID: React.PropTypes.string,
-	albumStyle: React.PropTypes.bool
+	albumStyle: React.PropTypes.bool,
+	subjectName: React.PropTypes.string,
+	curImage: React.PropTypes.string,
+	location: React.PropTypes.object
+};
+
+Subject.contextTypes = {
+	location: React.PropTypes.object
 };

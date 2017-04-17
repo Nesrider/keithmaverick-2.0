@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Header} from '../components/Header';
+import './app.scss';
 
 export class app extends Component {
 
@@ -13,24 +14,29 @@ export class app extends Component {
 		this.onhandleChangeSub = this.onhandleChangeSub.bind(this);
 	}
 
+	getChildContext() {
+		return {
+			location: this.props.location
+		};
+	}
+
 	updateSubjects(subjects) {
 		this.props.subjects = subjects;
 	}
 
 	onhandleChangeSub(item) {
-		console.log(`IN HERE\n\n${item.SUBJECT_NAME}`);
 		this.setState({
 			subject: item.SUBJECT_ID
 		});
 	}
 
 	render() {
-		console.log(this.state.subject);
-
 		return (
 			<div>
 				<Header changeSub={this.onhandleChangeSub} curSub={this.props.subject} parentSub={this.updateSubjects}/>
-				{this.props.children}
+				<div className="pageViewer">
+					{this.props.children}
+				</div>
 			</div>
 		);
 	}
@@ -45,5 +51,10 @@ app.defaultProps = {
 app.propTypes = {
 	subject: React.PropTypes.number,
 	subjects: React.PropTypes.node,
-	children: React.PropTypes.node
+	children: React.PropTypes.node,
+	location: React.PropTypes.object
+};
+
+app.childContextTypes = {
+	location: React.PropTypes.object
 };

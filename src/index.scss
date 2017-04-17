@@ -4,9 +4,10 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 html, body {
   background-color: lightgrey;
   overflow: hidden !important;
-  position: fixed;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  margin-bottom: auto;
 }
 
 .container {

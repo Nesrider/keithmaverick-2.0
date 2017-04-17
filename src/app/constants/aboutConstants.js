@@ -1,3 +1,4 @@
+export const aboutPic = "images/about.png";
 
 export const aboutContent = {
 	Name: "Keith Maverick Yeung",
