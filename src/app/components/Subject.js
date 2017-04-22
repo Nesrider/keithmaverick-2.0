@@ -3,6 +3,7 @@ import {getImagesBySubId, getProjectsBySubId} from '../constants/dbConstants';
 import {ProjectThumbnail} from './ProjectThumbnail';
 import {ProjectImage} from './ProjectImage';
 import {Link} from 'react-router';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 import "./Subject.scss";
 import $ from 'jquery';
 
@@ -14,8 +15,11 @@ export class Subject extends Component {
 			subProjects: null,
 			subImages: null,
 			numPerRow: 4,
-			curLocation: null
+			imageHeight: '',
+			imageContainerHeight: '57vh'
 		};
+
+		this.cloneE = this.cloneE.bind(this);
 	}
 
 	setImages(images) {
@@ -30,6 +34,20 @@ export class Subject extends Component {
 		});
 	}
 
+	toggleImagePopped() {
+		let imageH = this.state.imageHeight;
+
+		if (imageH === '0') {
+			imageH = this.state.imageContainerHeight;
+		} else {
+			imageH = '0';
+		}
+
+		this.setState({
+			imageHeight: imageH
+		});
+	}
+
 	componentDidMount() {
 		const getImages = getImagesBySubId +
 		this.props.subjectID;
@@ -40,6 +58,7 @@ export class Subject extends Component {
 		$.ajax({
 			url: getImages,
 			datatype: 'jsonp',
+			cache: true,
 			success: response =>
 				this.setImages(response)
 		});
@@ -47,12 +66,9 @@ export class Subject extends Component {
 		$.ajax({
 			url: getProjects,
 			datatype: 'jsonp',
+			cache: true,
 			success: response =>
 				this.setProjects(response)
-		});
-
-		this.setState({
-			curLocation: this.context.location.pathname
 		});
 	}
 
@@ -65,7 +81,7 @@ export class Subject extends Component {
 	}
 
 	buildProjects() {
-		const curLocation = this.state.curLocation;
+		const curLocation = this.props.path;
 		const subImages = this.state.subImages;
 		const numPerRow = this.state.numPerRow;
 		const output = [];
@@ -156,28 +172,36 @@ export class Subject extends Component {
 		return output;
 	}
 
+	cloneE(element) {
+		const path = this.props.path;
+		return React.cloneElement(element, {key: path});
+	}
+
 	buildImage() {
+		const curLocation = this.props.path;
 		const curImage = this.props.curImage;
 
-		if (curImage === undefined) {
+		if (curImage === undefined || this.state.subImages === undefined || this.state.subImages === null) {
 			return (<div></div>);
 		}
 
-		const index = parseInt(this.props.curImage);
-		const imageObj = this.state.subimages[index];
+		const index = parseInt(this.props.curImage, 10);
+		const imageObj = this.state.subImages[index];
 		return (
-			<div>
-				<ProjectImage imageObject={imageObj}/>
-			</div>
+			<ProjectImage key={imageObj} location={curLocation} className="projectImage" imageObject={imageObj}/>
 		);
 	}
 
 	render() {
 		const projects = this.buildProjects();
+		const image = this.buildImage();
 
 		return (
 			<div className="container">
-				<div className="container projectImage">
+				<div className="container imageContainer">
+					<TransitionGroup>
+						{image}
+					</TransitionGroup>
 				</div>
 				<div className="container Subject">
 					<div className="row subjectName">
@@ -198,9 +222,5 @@ Subject.propTypes = {
 	albumStyle: React.PropTypes.bool,
 	subjectName: React.PropTypes.string,
 	curImage: React.PropTypes.string,
-	location: React.PropTypes.object
-};
-
-Subject.contextTypes = {
-	location: React.PropTypes.object
+	path: React.PropTypes.string
 };

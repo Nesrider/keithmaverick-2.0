@@ -63,6 +63,7 @@ export class Header extends Component {
 		$.ajax({
 			url: getSubjects,
 			datatype: 'jsonp',
+			cache: true,
 			success: response =>
 				this.setResult(response)
 		});
