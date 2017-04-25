@@ -16,7 +16,8 @@ export class Subject extends Component {
 			subImages: null,
 			numPerRow: 4,
 			imageHeight: '',
-			imageContainerHeight: '57vh'
+			imageContainerHeight: '57vh',
+			curImage: undefined
 		};
 
 		this.cloneE = this.cloneE.bind(this);
@@ -47,6 +48,13 @@ export class Subject extends Component {
 			imageHeight: imageH
 		});
 	}
+
+	// componentWillUpdate(nextProps) {
+	// 	console.log(nextProps.curImage);
+	// 	// this.setState({
+	// 	// 	curImage: nextProps.curImage
+	// 	// });
+	// }
 
 	componentDidMount() {
 		const getImages = getImagesBySubId +
@@ -124,7 +132,7 @@ export class Subject extends Component {
 
 			if (row.length < numPerRow && (curProjectId === curImageProjectId || !isAlbumStyle)) {
 				row.push(curThumbnail);
-			} else if (row.length < numPerRow && curProjectId !== curImageProjectId) {
+			} else if ((row.length < (numPerRow + 1) && curProjectId !== curImageProjectId) && isAlbumStyle) {
 				curProjectId = curImageProjectId;
 
 				pushCount += 1;

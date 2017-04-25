@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
+import {ProjectDescription} from './ProjectDescription';
 import {TweenMax} from 'gsap';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 import './ProjectImage.scss';
 import {Link} from 'react-router';
+import VideoPlayer from './VideoPlayer';
 import $ from 'jquery';
 
 export class ProjectImage extends Component {
@@ -9,17 +12,22 @@ export class ProjectImage extends Component {
 	constructor(props) {
 		super(props);
 		this.buildImage = this.buildImage.bind(this);
-		this.buildDescription = this.buildDescription.bind(this);
 		this.containerAdd = this.containerAdd.bind(this);
+		this.buildDescription = this.buildDescription.bind(this);
+		this.handleInfo = this.handleInfo.bind(this);
 		this.state = {
 			infoClicked: false
 		};
 	}
 
 	buildVideo() {
+		const image = this.props.imageObject;
+		const videoId = image.PROJECT_ID;
+		const videoSource = image.IMAGE_SOURCE;
+		const videoPoster = image.IMAGE_BACK;
+
 		return (
-			<div>
-			</div>
+			<VideoPlayer id={videoId} source={videoSource} poster={videoPoster}/>
 		);
 	}
 
@@ -34,15 +42,15 @@ export class ProjectImage extends Component {
 			<div className="projectImageWrapper">
 				<img src={image.IMAGE_SOURCE}/>
 			</div>
-
 		);
 	}
 
 	buildDescription() {
 		if (this.state.infoClicked) {
+			const image = this.props.imageObject;
+
 			return (
-				<div>
-				</div>
+				<ProjectDescription key={image} imageObject={image}/>
 			);
 		}
 
@@ -54,9 +62,9 @@ export class ProjectImage extends Component {
 
 	handleInfo() {
 		if ($(".info").hasClass("infoClicked")) {
-			$(".info".removeClass("infoClicked"));
+			$(".info").removeClass("infoClicked");
 		} else {
-			$(".info".addClass("infoClicked"));
+			$(".info").addClass("infoClicked");
 		}
 
 		const isInfoClicked = this.state.infoClicked;
@@ -65,16 +73,11 @@ export class ProjectImage extends Component {
 		});
 	}
 
-	componentDidMount() {
-		console.log("PROJECT IMAGE COMPONENT DID MOUNT");
-	}
-
 	addImage() {
 		$(".Subject").addClass("imagePopped");
 	}
 
 	componentWillEnter(callback) {
-		console.log("PROJECT IMAGE ENTERED");
 		const el = this.container;
 
 		const newCallback = () => {
@@ -86,7 +89,6 @@ export class ProjectImage extends Component {
 	}
 
 	componentWillLeave(callback) {
-		console.log("PROJECT IMAGE LEAVED");
 		const el = this.container;
 		$(".Subject").removeClass("imagePopped");
 		TweenMax.fromTo(el, 0.4, {opacity: 1, height: "57vh"}, {opacity: 0, height: "0vh", onComplete: callback});
@@ -98,11 +100,19 @@ export class ProjectImage extends Component {
 
 	render() {
 		const image = this.buildImage();
+		const description = this.buildDescription();
 
 		return (
 			<div className="row projectImage" ref={this.containerAdd}>
-				<div className="col col-xs-11 col-sm-5 col-mid-5 col-lg-5 center-block">
-					{image}
+				<div className="col col-xs-11 col-sm-11 col-mid-6 col-lg-6 center-block">
+					<div className="imageSelect">
+						{image}
+					</div>
+				</div>
+				<div className="description">
+					<TransitionGroup>
+						{description}
+					</TransitionGroup>
 				</div>
 				<div className="close">
 					<Link to={this.props.location}>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Header} from '../components/Header';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './app.scss';
+import {routes} from '../constants/routeConstants';
 
 export class app extends Component {
 
@@ -8,10 +10,21 @@ export class app extends Component {
 		super(props);
 
 		this.state = {
-			subject: -1
+			subject: -1,
+			transitionType: "pageSwap"
 		};
 
 		this.onhandleChangeSub = this.onhandleChangeSub.bind(this);
+	}
+
+	getIndex(segment) {
+		for (let i = 0; i < routes.length; i++) {
+			if (routes[i] === segment) {
+				return i;
+			}
+		}
+
+		return -1;
 	}
 
 	getChildContext() {
@@ -25,17 +38,33 @@ export class app extends Component {
 	}
 
 	onhandleChangeSub(item) {
+		const curIndex = this.state.subject;
+		const nextIndex = item.SUBJECT_ID;
+		let nextTransition = "";
+
+		if (nextIndex > curIndex) {
+			nextTransition = "pageSwap";
+		} else {
+			nextTransition = "reversePageSwap";
+		}
+
 		this.setState({
-			subject: item.SUBJECT_ID
+			subject: nextIndex,
+			transitionType: nextTransition
 		});
 	}
 
 	render() {
+		const path = this.props.location.pathname;
+		const segment = path.split('/')[1] || 'root';
+
 		return (
 			<div>
 				<Header changeSub={this.onhandleChangeSub} curSub={this.props.subject} parentSub={this.updateSubjects}/>
 				<div className="pageViewer">
-					{this.props.children}
+					<ReactCSSTransitionGroup component="div" transitionName={this.state.transitionType} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+						{React.cloneElement(this.props.children, {key: segment})}
+					</ReactCSSTransitionGroup>
 				</div>
 			</div>
 		);

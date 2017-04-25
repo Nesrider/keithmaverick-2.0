@@ -87,9 +87,13 @@ export class Header extends Component {
 	}
 
 	handleHome() {
+		const changeSub = this.props.changeSub;
+
 		if ($('.navPop').hasClass('navPopped')) {
 			this.handlePopNav();
 		}
+
+		changeSub({SUBJECT_ID: -1});
 	}
 
 	render() {
@@ -105,10 +109,18 @@ export class Header extends Component {
 
 		const social = (
 			<div className={'col socialMedia col-xs-3 col-sm-3 col-mid-3 col-lg-3'}>
-				<i className={"fa fa-facebook-square col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
-				<i className={"fa fa-linkedin-square col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
-				<i className={"fa fa-instagram col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
-				<i className={"fa fa-github-square col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
+				<a href="https://www.facebook.com/kmavericky">
+					<i className={"fa fa-facebook-square col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/kmyeung/">
+					<i className={"fa fa-linkedin-square col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
+				</a>
+				<a href="https://www.instagram.com/nesrider/">
+					<i className={"fa fa-instagram col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
+				</a>
+				<a href="https://github.com/Nesrider">
+					<i className={"fa fa-github-square col-xs-2 col-sm-2 col-mid-2 col-lg-2"} aria-hidden="true"></i>
+				</a>
 			</div>
 		);
 
