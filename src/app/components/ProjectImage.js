@@ -104,7 +104,7 @@ export class ProjectImage extends Component {
 
 		return (
 			<div className="row projectImage" ref={this.containerAdd}>
-				<div className="col col-xs-11 col-sm-11 col-mid-6 col-lg-6 center-block">
+				<div className="col col-xs-11 col-sm-11 col-mid-7 col-lg-7 center-block">
 					<div className="imageSelect">
 						{image}
 					</div>

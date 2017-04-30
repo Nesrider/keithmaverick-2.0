@@ -78,9 +78,14 @@ export class Header extends Component {
 		</Link>);
 	}
 
-	subVertical(item) {
+	subVertical(item, changeSub) {
+		const change = () => {
+			changeSub(item);
+			this.handlePopNav();
+		};
+
 		return (<Link to={item.SUBJECT_LINK} key={item.SUBJECT_ID}>
-			<li className={'sub'} onClick={this.handlePopNav}>
+			<li className={'sub'} onClick={change}>
 				<h6>{item.SUBJECT_NAME}</h6>
 			</li>
 		</Link>);
@@ -104,7 +109,7 @@ export class Header extends Component {
 		);
 
 		const subVertical = this.state.subjects.map(item =>
-			this.subVertical(item)
+			this.subVertical(item, changeSub)
 		);
 
 		const social = (

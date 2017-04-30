@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import {app} from './app/containers/app';
-import {Home} from './app/components/Home';
+import {Home2} from './app/components/Home2';
 import {About} from './app/components/About';
 import {CsSubject} from './app/components/CsSubject';
 import {AdSubject} from './app/components/AdSubject';
@@ -14,7 +14,7 @@ import './index.scss';
 ReactDOM.render(
 	<Router history={browserHistory}>
 		<Route path="/" component={app}>
-			<IndexRoute component={Home}/>
+			<IndexRoute component={Home2}/>
 			<Route path="about" component={About}/>
 			<Route path="cs(/:imageName)" component={CsSubject}/>
 			<Route path="design(/:imageName)" component={AdSubject}/>
