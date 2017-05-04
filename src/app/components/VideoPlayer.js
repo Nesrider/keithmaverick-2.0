@@ -3,6 +3,7 @@ import videojs from 'video.js';
 import './VideoPlayer.scss';
 
 export default class VideoPlayer extends Component {
+
 	componentDidMount() {
 		const id = `video${this.props.id}`;
 		this.setState({
@@ -13,6 +14,13 @@ export default class VideoPlayer extends Component {
 	componentWillUnmount() {
 		if (this.state.player) {
 			this.state.player.dispose();
+		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.id !== this.props.id) {
+			this.state.player.src(nextProps.source);
+			this.state.player.poster(nextProps.poster);
 		}
 	}
 

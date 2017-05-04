@@ -34,3 +34,7 @@
 .vjs-control-bar {
 	background-color: rgba(7, 20, 30, 0.7) !important;
 }
+
+.video-js:focus, .vjs-poster:focus {
+	outline: none !important;
+}

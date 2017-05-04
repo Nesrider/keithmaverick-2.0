@@ -1,15 +1,36 @@
+@media(min-height:1200px) {
+	.HomeTitle {
+		font-size: 55px;
+		margin-bottom: 15px;
+	}
+
+	.HomeBlurb {
+		font-size: 22px;
+	}
+}
+
 .Home2 {
 	background-color: #111;
 	height: 94vh;
 }
 
-.HomeTitle {
+.HomeWords {
 	position: absolute;
 	color: #ddd;
 	text-align: center;
 	top: 60vh;
 	width: 100%;
+}
+
+.HomeTitle {
 	font-size: 45px;
+	margin-bottom: 10px;
+}
+
+.HomeBlurb {
+	color: #777;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .logoHome {
@@ -17,4 +38,21 @@
 	width: 100%;
 	padding-top: 10vh;
 	fill: #ddd;
+	border-width: 0 !important;
+}
+
+img.logoHome {
+	display: none;
+}
+
+.roles {
+	position: absolute;
+	text-align: center;
+	top: 75vh;
+	width: 100%;
+	color: #777;
+	font-size: 16px;
+}
+
+.role {
 }

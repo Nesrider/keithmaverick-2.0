@@ -9,8 +9,13 @@ export class Home2 extends Component {
 		return (
 			<div className="Home2">
 				<ReactSVG path="../images/logo.svg" className="logoHome"/>
-				<div className="HomeTitle">
-					{"It's A New Style"}
+				<div className="HomeWords">
+					<div className="HomeTitle">
+						{"It's A New Style"}
+					</div>
+					<div className="HomeBlurb">
+						{"Software engineer, designer, adventurer, but definitely not a doctor."}
+					</div>
 				</div>
 			</div>
 		);

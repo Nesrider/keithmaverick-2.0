@@ -20,3 +20,12 @@ export const homeContent = [
 		ImageHover: "../../images/fishbowl_hover.png"
 	}
 ];
+
+export const homeRoleContent = [
+	"Software Engineer",
+	"Designer",
+	"Artist",
+	"Adventurer",
+	"Turtle Owner",
+	"Foodie"
+];
