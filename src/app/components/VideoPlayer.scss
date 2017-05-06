@@ -16,6 +16,7 @@
 }
 
 .vjs-big-play-button {
+	width:75px !important;
 	top: 50% !important;
   left: 50% !important;
   border: none !important;
@@ -23,12 +24,14 @@
   transform: translate3d(-50%, -50%, 0);
   -webkit-transform: translate3d(-50%,-50%,0);
   -ms-transform: translate3d(-50%,-50%,0);
+  border-radius: 5px !important;
 }
 
 .vjs-default-skin:hover .vjs-big-play-button,
 .vjs-default-skin .vjs-big-play-button:focus {
 	background-color: #505050 !important;
   background-color: rgba(127, 30, 25, 0.7) !important; 
+  border-radius: 5px;
 }
 
 .vjs-control-bar {

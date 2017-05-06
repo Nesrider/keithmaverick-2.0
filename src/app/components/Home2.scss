@@ -1,3 +1,21 @@
+@media(max-width:576px){
+
+}
+
+@media(max-width:768px){
+
+}
+
+@media(max-width:1025px){
+	.HomeImage img {
+		max-height: 100% !important;
+		width: auto !important;
+	}
+}
+
+@media(max-width: 1200px) {
+}
+
 @media(min-height:1200px) {
 	.HomeTitle {
 		font-size: 55px;
@@ -7,6 +25,7 @@
 	.HomeBlurb {
 		font-size: 22px;
 	}
+
 }
 
 .Home2 {
@@ -29,16 +48,48 @@
 
 .HomeBlurb {
 	color: #777;
-	margin-left: 10px;
-	margin-right: 10px;
+	z-index: 1;
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 .logoHome {
+	position: absolute;
 	height: 60vh;
 	width: 100%;
 	padding-top: 10vh;
 	fill: #ddd;
 	border-width: 0 !important;
+	z-index: 2;
+}
+
+.HomeImage img{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%,-50%,0);
+  -ms-transform: translate3d(-50%,-50%,0);
+}
+
+.HomeImage {
+	position: absolute;
+	height: 93vh;
+	width: 100%;
+	z-index: 0;
+}
+
+.HomeImageOpacity {
+	background-color: #111;
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	opacity: 0.75;
 }
 
 img.logoHome {
