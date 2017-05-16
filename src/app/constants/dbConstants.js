@@ -1,4 +1,4 @@
-const backendHost = 'http://kmyeung.pythonanywhere.com/';
+const backendHost = 'https://kmyeung.pythonanywhere.com/';
 
 export const getSubjects = `${backendHost}subjects`;
 export const getProjects = `${backendHost}projects`;

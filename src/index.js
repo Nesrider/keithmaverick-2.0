@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
+import {Router, Route, useRouterHistory, IndexRoute} from 'react-router';
 import {app} from './app/containers/app';
 import {Home2} from './app/components/Home2';
 import {About} from './app/components/About';
@@ -9,10 +9,13 @@ import {AdSubject} from './app/components/AdSubject';
 import {ArchSubject} from './app/components/ArchSubject';
 import {PhotoSubject} from './app/components/PhotoSubject';
 import {NotFound} from './app/components/NotFound';
+import {createHashHistory} from 'history';
 import './index.scss';
 
+const appHistory = useRouterHistory(createHashHistory)({queryKey: false});
+
 ReactDOM.render(
-	<Router history={browserHistory}>
+	<Router history={appHistory}>
 		<Route path="/" component={app}>
 			<IndexRoute component={Home2}/>
 			<Route path="about" component={About}/>

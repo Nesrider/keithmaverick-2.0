@@ -67,8 +67,8 @@ export class About extends Component {
 						</div>
 					</div>
 					<div className="container containerDesc">
-						<div className="row aboutBoxCol ">
-							<div className="col-mid-6 col-lg-9 aboutText ">
+						<div className="row aboutBoxCol vertical-align">
+							<div className="col-mid-6 col-lg-9 aboutText">
 								<div>
 									{content.Description}
 								</div>
