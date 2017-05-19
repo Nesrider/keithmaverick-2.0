@@ -129,6 +129,23 @@ export class Header extends Component {
 			</div>
 		);
 
+		const socialPop = (
+			<div className="socialIconPop">
+				<a href="https://www.facebook.com/kmavericky">
+					<i className={"fa fa-facebook-square col-xs-3 col-sm-3"} aria-hidden="true"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/kmyeung/">
+					<i className={"fa fa-linkedin-square col-xs-3 col-sm-3"} aria-hidden="true"></i>
+				</a>
+				<a href="https://www.instagram.com/nesrider/">
+					<i className={"fa fa-instagram col-xs-3 col-sm-3"} aria-hidden="true"></i>
+				</a>
+				<a href="https://github.com/Nesrider">
+					<i className={"fa fa-github-square col-xs-3 col-sm-3"} aria-hidden="true"></i>
+				</a>
+			</div>
+		);
+
 		return (
 			<div className={'headerParent'}>
 				<header className={'container'}>
@@ -154,10 +171,17 @@ export class Header extends Component {
 				<div className={'navPop'}>
 					<div className={'topNav'}>
 					</div>
-
-					<ul>
-						{subVertical}
-					</ul>
+					<div className="navBot">
+						<ul>
+							{subVertical}
+						</ul>
+						<div className="divider">
+							<hr className="dividerPop"/>
+						</div>
+						<div className="socialPop">
+							{socialPop}
+						</div>
+					</div>
 				</div>
 				<div className="navBackground">
 				</div>

@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 import ReactSVG from 'react-svg';
 import './Home2.scss';
-// import $ from 'jquery';
+import $ from 'jquery';
 
 export class Home2 extends Component {
+
+	handleFadeIn() {
+		$('#home_back').fadeIn(200);
+	}
 
 	render() {
 		return (
 			<div className="Home2">
 				<div className="HomeImage">
-					<img src="./images/home_opt.png"/>
+					<img id="home_back" src="./images/home_opt.png" onLoad={this.handleFadeIn}/>
 					<div className="HomeImageOpacity"/>
 				</div>
 				<ReactSVG path="./images/logo.svg" className="logoHome"/>

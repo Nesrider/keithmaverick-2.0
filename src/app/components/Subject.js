@@ -122,11 +122,12 @@ export class Subject extends Component {
 
 		for (let i = 0; i < subLength; i++) {
 			const curImageProjectId = subImages[i].PROJECT_ID;
+			const curImageId = subImages[i].IMAGE_ID;
 			const curImageBack = subImages[i].IMAGE_BACK;
 			const curImageName = subImages[i].IMAGE_NAME;
 			const curThumbnail = (
 				<Link key={i} to={`${curLocation}/${i}`}>
-					<ProjectThumbnail thumbnail={curImageBack} projectName={curImageName}/>
+					<ProjectThumbnail imageId={curImageId} thumbnail={curImageBack} projectName={curImageName}/>
 				</Link>
 			);
 

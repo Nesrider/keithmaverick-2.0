@@ -20,6 +20,11 @@ export class ProjectImage extends Component {
 		};
 	}
 
+	fadeIn() {
+		const image = this.props.imageObject;
+		return () => $(`#img${image.IMAGE_ID}`).fadeIn(200);
+	}
+
 	buildVideo() {
 		const image = this.props.imageObject;
 		const videoId = image.PROJECT_ID;
@@ -33,6 +38,7 @@ export class ProjectImage extends Component {
 
 	buildImage() {
 		const image = this.props.imageObject;
+		const imgId = `img${image.IMAGE_ID}`;
 
 		if (image.IMAGE_TYPE === 2) {
 			return this.buildVideo();
@@ -40,7 +46,7 @@ export class ProjectImage extends Component {
 
 		return (
 			<div className="projectImageWrapper">
-				<img src={image.IMAGE_SOURCE}/>
+				<img id={imgId} src={image.IMAGE_SOURCE} onLoad={this.fadeIn()}/>
 			</div>
 		);
 	}

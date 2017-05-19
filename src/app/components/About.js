@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './About.scss';
 import {aboutContent, aboutPic} from '../constants/aboutConstants';
+import $ from 'jquery';
 
 export class About extends Component {
 
@@ -10,6 +11,10 @@ export class About extends Component {
 		this.state = {
 			content: aboutContent
 		};
+	}
+
+	handleFadeIn() {
+		$('#aboutPhoto').fadeIn(200);
 	}
 
 	addNewLine(contentLength, i) {
@@ -99,7 +104,7 @@ export class About extends Component {
 					</div>
 				</div>
 				<div className="container aboutImg">
-					<img src={aboutPic}/>
+					<img id="aboutPhoto" src={aboutPic} onLoad={this.handleFadeIn}/>
 				</div>
 			</div>
 		);

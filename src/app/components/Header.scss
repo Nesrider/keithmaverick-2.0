@@ -130,10 +130,9 @@ header .fa {
 }
 
 .navPop ul {
-	position: absolute;
 	list-style-type: none;
 	padding: 0;
-	bottom: 65px;
+	margin-bottom: 30px !important;
 }
 
 .navPop .topNav {
@@ -186,4 +185,33 @@ header .fa {
 	border-radius: 3px;
 	padding: 5px;
 	background-color: #caccd1;
+}
+
+.socialPop {
+	height: 10vh;
+	margin-left: 6px;
+	margin-right: 20px;
+
+}
+
+.socialPop i{
+	color: #eee !important;
+	font-size: 17px;
+	text-align: center;
+}
+
+.divider {
+	padding-left: 20px;
+	padding-right: 25px;
+}
+
+.dividerPop {
+	border-color: #eee;
+	background-color: #eee;
+	width: 100%;
+}
+
+.navBot {
+	position: absolute;
+	bottom: 30px;
 }
