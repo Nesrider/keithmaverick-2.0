@@ -54,7 +54,7 @@ export class About extends Component {
 		);
 
 		return (
-			<div className="container">
+			<div className="container aboutSub">
 				<div className="container aboutPage">
 					<div className="container containerName ">
 						<div className="row">

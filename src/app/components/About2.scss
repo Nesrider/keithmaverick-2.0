@@ -1,3 +1,14 @@
+@media(max-width:576px){
+	.aboutBoxCol {
+		padding-left: 30px !important;
+		padding-right: 30px !important;
+	}
+
+	.aboutSkills {
+		height: auto !important;
+	}
+}
+
 @media(max-width:1200px) {
 	.aboutImg > img {
 		width: 1200px !important;
@@ -9,6 +20,21 @@
 		padding-top: 40px;
 		padding-bottom: 40px;
 	}
+
+	.leftBox {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+	}
+
+	.rightBox {
+		padding-right: 0px !important;
+		padding-left: 0px !important;
+	}
+
+	.aboutSkills {
+		height: auto !important;
+	}
+
 }
 
 @media(min-height: 1000px) {
@@ -27,6 +53,11 @@
 	.aboutSubName {
 		font-size: 25px !important;
 	}
+
+	.aboutSkills {
+		height: 725px !important;
+	}
+
 
 }
 
@@ -61,8 +92,9 @@
 }
 
 .containerDesc {
-	padding: 20px;
-	flex: 1;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .aboutPage {
@@ -71,9 +103,12 @@
 	overflow-y: scroll;
 	overflow-scrolling: touch;
 	-webkit-overflow-scrolling: touch;
-	display: flex;
-	flex-direction: column;
 	padding-bottom: 0;
+}
+
+.aboutPage ul {
+	list-style-type: none;
+	padding-left: 0px;
 }
 
 .aboutBox {
@@ -95,19 +130,35 @@
 .aboutBoxCol {
 	background-color: #242424;
 	border: 0.1px solid rgba(17, 17, 17, 0.7);
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 70px;
+	padding-right: 70px;
 	border-radius: 3px;
 	margin-right: auto;
 	margin-left: auto;
+	margin-bottom: 20px;
 	height: 100%;
 }
 
-.aboutSkill {
-	float: left;
-	margin-left: 15px;
+.doubleBoxCol {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.leftBox {
+	padding-left: 0px;
+	padding-right: 10px;
+}
+
+.rightBox {
+	padding-right: 0px;
+	padding-left: 10px;
+}
+
+.aboutBoxTitle {
+	margin-bottom: 15px;
+	font-size: 19px ;
 }
 
 .columns {
@@ -119,10 +170,6 @@
   column-gap: 20px;
 }
 
-.aboutSkills {
-	list-style-type: square;
-	padding-left: 20px;
-}
 
 .aboutText{
 	color: #888;
@@ -141,18 +188,37 @@
 	border-radius: 0;
 }
 
+.aboutSkills {
+	height: 560px;
+}
+
 .aboutMainName {
 	font-size: 35px;
 	color: white;
 }
 
-.aboutBold {
-	font-size: 17px;	
-}
 
 .aboutSubName {
 	color: #888;
 	font-weight: 200;
 	letter-spacing: 0.1px;
 	font-size: 16px;
+}
+
+.skillMeter {
+	border: 1px solid #888;
+	border-radius: 4px;
+	margin: 4px 0px;
+}
+
+.aboutSkills > table {
+	width: 100%;
+}
+
+.skill {
+	padding-left: 0px;
+}
+
+.bar {
+	background-color: #888;
 }

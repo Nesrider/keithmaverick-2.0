@@ -2,16 +2,15 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import "/bower_components/font-awesome/scss/font-awesome";
 
 html, body {
-  background-color: black;
-  overflow: hidden !important;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  margin-bottom: auto;
+	background-color: black;
 }
 
-::-webkit-scrollbar {
-    display: none;
+.wrapper {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+  margin-bottom: auto;
+  height: 100%;
 }
 
 .container {

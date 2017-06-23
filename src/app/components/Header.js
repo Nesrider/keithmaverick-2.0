@@ -150,17 +150,17 @@ export class Header extends Component {
 			<div className={'headerParent'}>
 				<header className={'container'}>
 					<div className={'row'}>
-						<div className={'col col-xs-6 col-sm-4 col-mid-3 col-lg-3 title'}>
+						<div className={'col col-xs-7 col-sm-4 col-mid-3 col-lg-3 title'}>
 							<Link to="/" className="home" onClick={this.handleHome}>
 								<h2>{'Keith Maverick'}</h2>
 							</Link>
 						</div>
-						<ul className={'col col-xs-1 col-sm-8 col-mid-6 col-lg-6 '}>
+						<ul className={'lgSub col col-xs-1 col-sm-8 col-mid-6 col-lg-6'}>
 							{subjects}
 						</ul>
 						{social}
-						<div className={'navMenu col-xs-5 col-sm-5'}>
-							<div className={'col col-xs-5 col-sm-5'}></div>
+						<div className={'navMenu col-xs-4 col-sm-4'}>
+							<div className={'col col-xs-7 col-sm-7'}></div>
 							<div className={'col col-xs-2 col-sm-2'}>
 								<i className={'fa fa-bars'} aria-hidden="true" onClick={this.handlePopNav}></i>
 							</div>

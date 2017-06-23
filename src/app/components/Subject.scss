@@ -1,6 +1,8 @@
 .Subject {
 	background-color: #333;
-	overflow: scroll;
+	overflow-y:scroll;
+	overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 	height: 100vh;
 	padding-bottom: 90px;
 	padding-right: 30px;

@@ -28,6 +28,10 @@
 		display: block !important;
 	}
 
+	.lgSub {
+		display: none !important;
+	}
+
 
 }
 
@@ -132,7 +136,8 @@ header .fa {
 .navPop ul {
 	list-style-type: none;
 	padding: 0;
-	margin-bottom: 30px !important;
+	margin-bottom: 25px !important;
+	font-weight: 200;
 }
 
 .navPop .topNav {
@@ -162,12 +167,20 @@ header .fa {
 	display: none;
 }
 
+.navPop h6 {
+	font-weight: 400;
+}
+
 .navMenuPopped {
 	color: #eee;
 	background-color: #666 !important;
 }
 
 .navMenuPopped:hover {
+	color: #bbb;
+}
+
+.socialPop i:hover {
 	color: #bbb;
 }
 
@@ -215,3 +228,7 @@ header .fa {
 	position: absolute;
 	bottom: 30px;
 }
+
+.lgSub {
+		display: block;
+	}
