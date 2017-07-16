@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './About2.scss';
 import {aboutContent, aboutPic} from '../constants/aboutConstants';
+import {logs} from '../constants/logConstants';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import {Log} from './Log';
 import $ from 'jquery';
 
 export class About2 extends Component {
@@ -9,12 +12,21 @@ export class About2 extends Component {
 		super(props);
 
 		this.state = {
-			content: aboutContent
+			content: aboutContent,
+			showLog: false
 		};
+
+		this.handleShowLogs = this.handleShowLogs.bind(this);
 	}
 
 	handleFadeIn() {
 		$('#aboutPhoto').fadeIn(200);
+	}
+
+	handleShowLogs() {
+		this.setState({
+			showLog: !this.state.showLog
+		});
 	}
 
 	addNewLine(contentLength, i) {
@@ -44,6 +56,7 @@ export class About2 extends Component {
 		const tech = content.Skills.Tech.map(item => this.skillMeter(item));
 		const design = content.Skills.Design.map(item => this.skillMeter(item));
 		const hobbies = content.Skills.Hobbies.map(item => this.skillMeter(item));
+		const showLogs = this.state.showLog ? (<Log key={"site_logs"}/>) : (<div/>);
 
 		const experience = content.Experience.map((item, i) =>
 			(<div key={item.Company}>
@@ -137,12 +150,18 @@ export class About2 extends Component {
 						</div>
 						<div className="row aboutBoxCol">
 							<div className="center-block">
-								<div className="aboutBoxTitle">
-									<b>The Website v{content.Version}</b>
+								<div className="aboutBoxTitle vertical-align-text">
+									<b>The Website v{logs[0].vers}</b>
+									<div className="showLogButton" onClick={this.handleShowLogs}>
+										{this.state.showLog ? "Hide Logs" : "Show Logs"}
+									</div>
 								</div>
 								<div>
 									{content.Website}
 								</div>
+								<TransitionGroup>
+									{showLogs}
+								</TransitionGroup>
 							</div>
 						</div>
 					</div>

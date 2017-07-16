@@ -1,7 +1,6 @@
 export const aboutPic = "images/about.png";
 
 export const aboutContent = {
-	Version: "2.1.3",
 	Name: "Keith Maverick Yeung",
 	School: "Carnegie Mellon University",
 	Major: "Bachelor of Computer Science and Architecture",
