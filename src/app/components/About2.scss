@@ -37,30 +37,6 @@
 
 }
 
-@media(min-height: 1000px) {
-	.aboutText {
-		font-size: 20px !important;
-	}
-
-	.aboutMainName {
-		font-size: 40px !important;
-	}
-
-	.aboutBold {
-		font-size: 20px !important;
-	}
-
-	.aboutSubName {
-		font-size: 25px !important;
-	}
-
-	.aboutSkills {
-		height: 725px !important;
-	}
-
-
-}
-
 @media(min-height: 1200px) {
 /*	.aboutBoxCol {
 		padding-bottom: 50px !important;
@@ -189,7 +165,7 @@
 }
 
 .aboutSkills {
-	height: 560px;
+	height: 520px;
 }
 
 .aboutMainName {
@@ -207,12 +183,18 @@
 
 .skillMeter {
 	border: 1px solid #888;
-	border-radius: 4px;
+	border-radius: 35px;
 	margin: 4px 0px;
+	overflow: hidden;
+	height: 12px;
 }
 
 .aboutSkills > table {
 	width: 100%;
+}
+
+.aboutSkills > table tr {
+	height: 25px;
 }
 
 .skill {

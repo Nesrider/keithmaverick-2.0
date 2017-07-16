@@ -149,7 +149,7 @@ export class Header extends Component {
 		return (
 			<div className={'headerParent'}>
 				<header className={'container'}>
-					<div className={'row'}>
+					<div className={'row align-center'}>
 						<div className={'col col-xs-7 col-sm-4 col-mid-3 col-lg-3 title'}>
 							<Link to="/" className="home" onClick={this.handleHome}>
 								<h2>{'Keith Maverick'}</h2>

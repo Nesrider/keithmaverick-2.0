@@ -218,7 +218,9 @@ export class Subject extends Component {
 							{this.props.subjectName}
 						</div>
 					</div>
-					{projects}
+					<div className="align-center">
+						{projects}
+					</div>
 				</div>
 			</div>
 		);

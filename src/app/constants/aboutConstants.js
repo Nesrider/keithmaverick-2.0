@@ -1,6 +1,7 @@
 export const aboutPic = "images/about.png";
 
 export const aboutContent = {
+	Version: "2.1.3",
 	Name: "Keith Maverick Yeung",
 	School: "Carnegie Mellon University",
 	Major: "Bachelor of Computer Science and Architecture",
@@ -13,7 +14,9 @@ export const aboutContent = {
 	the Front-End, Python Flask for the Back-end and MySql Database. The Front-End is hosted statically on a AWS S3 Bucket and the Back-end
 	runs on a Free Server called PythonAnywhere. The designs and components were
 	built in-house to really build a custom website that represents who I am.
-	Check out the original website can be found at v1.keithmaverick.com.`,
+	Check out the original website at v1.keithmaverick.com. If you would like to speak 
+	to me about prospective projects, collaborations, etc please feel free to contact me. 
+	Thank you for taking the time out to see my work!`,
 	Experience: [
 		{
 			Company: "BNY Mellon",
@@ -166,10 +169,5 @@ export const aboutContent = {
 			}
 		]
 	},
-	Contact: "kmyeung@andrew.cmu.edu",
-	Thankyou: `The skills, projects, and experiences I have gathered throughout the years
-	can be seen on this website. I have put a lot of effort in creating this style of development
-	from engineering to design. If you would like to speak to me about prospective projects,
-	collaborations, etc please feel free to contact me. Thank you for taking the time out 
-	to see my work!`
+	Contact: "kmyeung@andrew.cmu.edu"
 };

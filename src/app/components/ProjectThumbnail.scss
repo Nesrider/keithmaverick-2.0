@@ -22,7 +22,7 @@
 }
 
 .projectBlockImg {
-	height: 23vh;
+	height: 20vh;
 	overflow: hidden;
 	background-color: black;
 	position: relative;
@@ -34,6 +34,8 @@
   -moz-transition: border 0.2s ease;
   -o-transition: border 0.2s ease;
   transition: border 0.2s ease;
+  min-height: 175px;
+  max-height: 225px
 }
 
 .projectTitle {

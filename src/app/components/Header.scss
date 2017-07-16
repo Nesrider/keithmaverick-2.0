@@ -49,17 +49,6 @@
 		padding-bottom: 15px;
 	}
 
-	h2 {
-		font-size: 40px;
-	}
-
-	header h6 {
-		font-size: 17px !important;
-	}
-
-	header .fa {
-		font-size: 30px !important;
-	}
 }
 
 .title {
@@ -114,6 +103,7 @@ header {
 	bottom: 0;
 	z-index:100;
 	padding-bottom:5px;
+	min-height: 6vh;
 }
 
 header h6 {

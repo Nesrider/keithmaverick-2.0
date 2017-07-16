@@ -63,19 +63,21 @@ export class About2 extends Component {
 					<div className="container containerName ">
 						<div className="row">
 							<div className="col aboutName aboutBox">
-								<div className="aboutMainName">
-									{content.Name}
-								</div>
-								<div className="aboutSubName aboutEduName">
-									{content.School}
-								</div>
-								<div className="aboutSubName aboutMajorName">
-									{content.Major}
+								<div className="align-center">
+									<div className="aboutMainName">
+										{content.Name}
+									</div>
+									<div className="aboutSubName aboutEduName">
+										{content.School}
+									</div>
+									<div className="aboutSubName aboutMajorName">
+										{content.Major}
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div className="container containerDesc aboutText">
+					<div className="container containerDesc aboutText align-center">
 						<div className="row aboutBoxCol">
 							<div className="center-block">
 								<div className="aboutBoxTitle">
@@ -83,16 +85,6 @@ export class About2 extends Component {
 								</div>
 								<div>
 									{content.Description}
-								</div>
-							</div>
-						</div>
-						<div className="row aboutBoxCol">
-							<div className="center-block">
-								<div className="aboutBoxTitle">
-									<b>The Website</b>
-								</div>
-								<div>
-									{content.Website}
 								</div>
 							</div>
 						</div>
@@ -146,10 +138,10 @@ export class About2 extends Component {
 						<div className="row aboutBoxCol">
 							<div className="center-block">
 								<div className="aboutBoxTitle">
-									<b>Thank you</b>
+									<b>The Website v{content.Version}</b>
 								</div>
 								<div>
-									{content.Thankyou}
+									{content.Website}
 								</div>
 							</div>
 						</div>
