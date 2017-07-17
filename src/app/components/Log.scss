@@ -5,7 +5,8 @@
 .logTable {
 	margin-top: 20px;
 	width: 100%;
-	border-spacing: 5px 0px;
+	border-collapse: separate;
+	border-spacing: 9px 0px;
 }
 
 .logDate {
@@ -14,4 +15,8 @@
 
 .logTable th {
 	padding-bottom: 10px;
+}
+
+.logTable td {
+	vertical-align: top;
 }

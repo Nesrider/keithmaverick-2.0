@@ -104,6 +104,7 @@ header {
 	z-index:100;
 	padding-bottom:5px;
 	min-height: 6vh;
+	display: flex;
 }
 
 header h6 {
@@ -191,7 +192,6 @@ header .fa {
 }
 
 .socialPop {
-	height: 10vh;
 	margin-left: 6px;
 	margin-right: 20px;
 
@@ -216,7 +216,13 @@ header .fa {
 
 .navBot {
 	position: absolute;
-	bottom: 30px;
+	bottom: 0px;
+	padding-bottom: 35px;
+}
+
+.navRow {
+	width: 100%;
+	margin: auto !important;
 }
 
 .lgSub {

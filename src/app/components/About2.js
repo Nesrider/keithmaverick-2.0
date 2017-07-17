@@ -152,12 +152,12 @@ export class About2 extends Component {
 							<div className="center-block">
 								<div className="aboutBoxTitle vertical-align-text">
 									<b>The Website v{logs[0].vers}</b>
-									<div className="showLogButton" onClick={this.handleShowLogs}>
-										{this.state.showLog ? "Hide Logs" : "Show Logs"}
-									</div>
 								</div>
 								<div>
 									{content.Website}
+								</div>
+								<div className="showLogButton" onClick={this.handleShowLogs}>
+									{this.state.showLog ? "Hide Logs" : "Show Logs"}
 								</div>
 								<TransitionGroup>
 									{showLogs}

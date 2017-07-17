@@ -21,6 +21,9 @@ export class Header extends Component {
 				$('.navBackground').css("display", "none")
 			});
 		} else {
+			const headerHeight = $('header').height();
+			const navHeight = window.innerHeight - headerHeight;
+			$('.navPop').attr('style', `height:${navHeight}px`);
 			$('.navPop').addClass('navPopped');
 			$('.fa-bars').addClass('navMenuPopped');
 			$('.navBackground').css("display", "block");
@@ -53,9 +56,16 @@ export class Header extends Component {
 	}
 
 	removePop() {
-		const documentWidth = $(document).width();
-		if ($('.navPop').hasClass('navPopped') && documentWidth > 768) {
-			this.handlePopNav();
+		const windowWidth = $(window).width();
+
+		if ($('.navPop').hasClass('navPopped')) {
+			const headerHeight = $('header').height();
+			const navHeight = window.innerHeight - headerHeight;
+			$('.navPop').css('height', `${navHeight}px`);
+
+			if (windowWidth > 768) {
+				this.handlePopNav();
+			}
 		}
 	}
 
@@ -149,7 +159,7 @@ export class Header extends Component {
 		return (
 			<div className={'headerParent'}>
 				<header className={'container'}>
-					<div className={'row align-center'}>
+					<div className={'row align-center navRow'}>
 						<div className={'col col-xs-7 col-sm-4 col-mid-3 col-lg-3 title'}>
 							<Link to="/" className="home" onClick={this.handleHome}>
 								<h2>{'Keith Maverick'}</h2>

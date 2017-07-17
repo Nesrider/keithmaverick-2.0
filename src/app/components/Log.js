@@ -14,7 +14,13 @@ export class Log extends Component {
 		const el = this.container;
 		const logHeight = $(".logs").height();
 		const logPxHeight = `${logHeight}px`;
-		TweenMax.fromTo(el, 0.4, {opacity: 0, height: "0px"}, {opacity: 1, height: logPxHeight, onComplete: callback});
+
+		const newCallback = () => {
+			$(".logs").attr('style', 'height: auto; opacity: 1;');
+			callback();
+		};
+
+		TweenMax.fromTo(el, 0.4, {opacity: 0, height: "0px"}, {opacity: 1, height: logPxHeight, onComplete: newCallback});
 	}
 
 	componentWillLeave(callback) {
