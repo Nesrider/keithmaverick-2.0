@@ -1,5 +1,15 @@
 export const logs = [
 	{
+		vers: "2.1.6",
+		date: "7/18/17",
+		logNote: "Fixed sizing issues on mobile and larger screens"
+	},
+	{
+		vers: "2.1.5",
+		date: "7/17/17",
+		logNote: "Fixed Logging and Nav bugs on mobile and larger screens"
+	},
+	{
 		vers: "2.1.4",
 		date: "7/16/17",
 		logNote: "Added Version Logging on About Page"

@@ -58,7 +58,6 @@
 .aboutImg > img {
 	width: 100%;
 	margin-top: -25px;
-	min-height: 100%;
 	
 }
 
@@ -208,12 +207,7 @@
 .showLogButton {
 	font-size: 15px;
 	margin-top: 20px;
-}
-
-.showLogButton:hover {
-	color: #aaa;
-	cursor: pointer;
-
+	display: inline-block;
 }
 
 .vertical-align-text {

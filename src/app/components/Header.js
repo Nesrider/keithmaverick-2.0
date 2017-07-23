@@ -169,8 +169,8 @@ export class Header extends Component {
 							{subjects}
 						</ul>
 						{social}
-						<div className={'navMenu col-xs-4 col-sm-4'}>
-							<div className={'col col-xs-7 col-sm-7'}></div>
+						<div className={'navMenu col-xs-4 col-sm-8'}>
+							<div className={'col col-xs-7 col-sm-9'}></div>
 							<div className={'col col-xs-2 col-sm-2'}>
 								<i className={'fa fa-bars'} aria-hidden="true" onClick={this.handlePopNav}></i>
 							</div>

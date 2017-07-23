@@ -5,8 +5,13 @@
 	top: 0;
 	left: 0;
 	position: absolute;
-	padding-top: 15vh;
+	padding: 12vh 0;
 	color: #999;
+	overflow: scroll;
+}
+
+.descriptionBoxInner {
+	float: none;
 }
 
 .ProjectTitle {

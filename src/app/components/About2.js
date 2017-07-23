@@ -156,7 +156,7 @@ export class About2 extends Component {
 								<div>
 									{content.Website}
 								</div>
-								<div className="showLogButton" onClick={this.handleShowLogs}>
+								<div className="showLogButton activeBtn" onClick={this.handleShowLogs}>
 									{this.state.showLog ? "Hide Logs" : "Show Logs"}
 								</div>
 								<TransitionGroup>

@@ -22,3 +22,17 @@ html, body {
 	margin: 0 auto;
 }
 
+
+.activeBtn {
+	padding: 5px 10px;
+	border: 1px solid;
+	border-radius: 5px;
+	background-color: rgba(23,23,23,0);
+	-webkit-transition: background-color 200ms;
+	transition: background-color 200ms;
+}
+
+.activeBtn:hover {
+	background-color: rgba(23,23,23,1);
+	cursor: pointer;
+}
