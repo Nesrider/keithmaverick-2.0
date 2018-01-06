@@ -197,7 +197,7 @@ export class Subject extends Component {
 		const index = parseInt(this.props.curImage, 10);
 		const imageObj = this.state.subImages[index];
 		return (
-			<ProjectImage key={imageObj} location={curLocation} className="projectImage" imageObject={imageObj}/>
+			<ProjectImage key={imageObj} location={curLocation} index={index} maxIndex={this.state.subImages.length - 1} className="projectImage" imageObject={imageObj}/>
 		);
 	}
 
@@ -214,8 +214,10 @@ export class Subject extends Component {
 				</div>
 				<div className="container Subject">
 					<div className="row subjectName">
-						<div className="col">
-							{this.props.subjectName}
+						<div className="col align-center">
+							<div className="subjectNameLabel">
+								{this.props.subjectName}
+							</div>
 						</div>
 					</div>
 					<div className="align-center">
@@ -232,6 +234,7 @@ Subject.propTypes = {
 	subjectID: React.PropTypes.string,
 	albumStyle: React.PropTypes.bool,
 	subjectName: React.PropTypes.string,
+	icon: React.PropTypes.string,
 	curImage: React.PropTypes.string,
 	path: React.PropTypes.string
 };

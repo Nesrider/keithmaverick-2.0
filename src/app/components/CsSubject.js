@@ -4,7 +4,7 @@ import {Subject} from './Subject';
 export class CsSubject extends Component {
 	render() {
 		return (
-			<Subject subjectID="1" path="/cs" subjectName="Computer Science" curImage={this.props.params.imageName} albumStyle={false}/>
+			<Subject subjectID="1" path="/cs" subjectName="Computer Science" icon="./images/icons/code.svg" curImage={this.props.params.imageName} albumStyle={false}/>
 		);
 	}
 }

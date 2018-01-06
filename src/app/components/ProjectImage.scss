@@ -2,6 +2,14 @@
 	.projectImage img {
 		max-width: 100%;
 	}
+
+	.arrow {
+		background-color: rgba(17, 17, 17, 0.6) !important;
+	}
+}
+
+.description {
+
 }
 
 .projectImage {
@@ -10,6 +18,7 @@
 	overflow: hidden;
 	margin-left: -20px;
 	margin-right: -20px;
+	position: relative;
 }
 
 .projectImage > .col {
@@ -42,15 +51,49 @@
 
 .close {
 	position: absolute;
-	right: 30px;
 	top: 20px;
 	opacity: 1;
 }
 
 .info {
 	position: absolute;
-	left: 30px;
 	top: 20px;
+}
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(17, 17, 17, 1);
+	padding: 8px 5px;
+	border-radius: 3px;
+}
+
+.left-button {
+	left: 40px;
+}
+
+.right-button {
+	right: 40px;
+}
+
+.arrowIcon {
+	opacity: 0.6;
+	color: #ccc;
+	transition: all 200ms ease-out;
+}
+
+.arrowIcon:hover {
+	color: #eee;
+	opacity: 1;
+}
+
+.arrowIcon:hover .prev {
+	background-color: #000;
+}
+
+.arrowIcon:hover .next {
+	background-color: #000;
 }
 
 .imageButtons {
@@ -61,13 +104,13 @@
 	top: 0;
 }
 
-.infoIcon {
+.infoIcon{
 	opacity: 0.6;
 	color: #ccc;
 	transition: all 200ms ease-out;
 }
 
-.infoIcon:hover {
+.infoIcon:hover{
 	opacity: 1.0;
 	color: #eee;
 	cursor: pointer;
@@ -111,4 +154,3 @@
 .fa-times-thin:before {
   content: '\00d7';
 }
-

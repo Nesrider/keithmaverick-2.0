@@ -4,7 +4,7 @@ import {Subject} from './Subject';
 export class ArchSubject extends Component {
 	render() {
 		return (
-			<Subject subjectID="3" path="/archi" subjectName="Architecture" curImage={this.props.params.imageName} albumStyle/>
+			<Subject subjectID="3" path="/archi" subjectName="Architecture" icon="./images/icons/compass.svg" curImage={this.props.params.imageName} albumStyle/>
 		);
 	}
 }

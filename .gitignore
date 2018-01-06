@@ -4,3 +4,5 @@ dist/
 node_modules/
 src/images/
 src/videos/
+bower_components/
+npm-debug.log

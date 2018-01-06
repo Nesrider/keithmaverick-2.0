@@ -14,9 +14,12 @@ export class ProjectImage extends Component {
 		this.buildImage = this.buildImage.bind(this);
 		this.containerAdd = this.containerAdd.bind(this);
 		this.buildDescription = this.buildDescription.bind(this);
+		this.buildPrev = this.buildPrev.bind(this);
 		this.handleInfo = this.handleInfo.bind(this);
+		this.handleRemoveInfo = this.handleRemoveInfo.bind(this);
 		this.state = {
-			infoClicked: false
+			infoClicked: false,
+			expanded: false
 		};
 	}
 
@@ -66,6 +69,53 @@ export class ProjectImage extends Component {
 		);
 	}
 
+	buildPrev() {
+		const index = this.props.index;
+		const curLocation = this.props.location;
+		console.log(index);
+
+		if (index === 0) {
+			return (<div></div>);
+		}
+
+		return (
+			<div className="arrow left-button">
+				<Link to={`${curLocation}/${index - 1}`}>
+					<i className="fa fa-chevron-left fa-lg arrowIcon" aria-hidden="true"></i>
+				</Link>
+			</div>
+		);
+	}
+
+	buildNext() {
+		const index = this.props.index;
+		const maxIndex = this.props.maxIndex;
+		const curLocation = this.props.location;
+		console.log(index);
+
+		if (index === maxIndex) {
+			return (<div></div>);
+		}
+
+		return (
+			<div className="arrow right-button">
+				<Link to={`${curLocation}/${index + 1}`}>
+					<i className="fa fa-chevron-right fa-lg arrowIcon" aria-hidden="true"></i>
+				</Link>
+			</div>
+		);
+	}
+
+	handleRemoveInfo() {
+		if ($(".info").hasClass("infoClicked")) {
+			$(".info").removeClass("infoClicked");
+		}
+
+		this.setState({
+			infoClicked: false
+		});
+	}
+
 	handleInfo() {
 		if ($(".info").hasClass("infoClicked")) {
 			$(".info").removeClass("infoClicked");
@@ -107,6 +157,8 @@ export class ProjectImage extends Component {
 	render() {
 		const image = this.buildImage();
 		const description = this.buildDescription();
+		const prev = this.buildPrev();
+		const next = this.buildNext();
 
 		return (
 			<div className="row projectImage" ref={this.containerAdd}>
@@ -115,19 +167,21 @@ export class ProjectImage extends Component {
 						{image}
 					</div>
 				</div>
-				<div className="description">
+				<div className="description" onClick={this.handleRemoveInfo}>
 					<TransitionGroup>
 						{description}
 					</TransitionGroup>
 				</div>
-				<div className="close">
+				<div className="close right-button">
 					<Link to={this.props.location}>
 						<i className="fa fa-times-thin fa-lg closeIcon" aria-hidden="true"></i>
 					</Link>
 				</div>
-				<div className="info" onClick={this.handleInfo}>
+				<div className="info left-button" onClick={this.handleInfo}>
 					<i className="fa fa-info-circle fa-2x infoIcon" aria-hidden="true"></i>
 				</div>
+				{prev}
+				{next}
 			</div>
 		);
 	}
@@ -135,5 +189,7 @@ export class ProjectImage extends Component {
 
 ProjectImage.propTypes = {
 	imageObject: React.PropTypes.object,
-	location: React.PropTypes.string
+	location: React.PropTypes.string,
+	index: React.PropTypes.number,
+	maxIndex: React.PropTypes.number
 };

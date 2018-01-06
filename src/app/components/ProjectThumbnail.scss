@@ -14,7 +14,9 @@
 }
 
 .projectBlock:hover .projectBlockImg {
-
+	-webkit-box-shadow: 2px 2px 11px 4px #222;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    2px 2px 11px 4px #222;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         2px 2px 11px 4px #222;
 }
 
 .projectBlock:hover .projectTitle {
@@ -27,20 +29,20 @@
 	background-color: black;
 	position: relative;
 	border-radius: 3px;
-	-webkit-box-shadow: 2px 2px 11px 0px #222;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  -moz-box-shadow:    2px 2px 11px 0px #222;  /* Firefox 3.5 - 3.6 */
-  box-shadow:         2px 2px 11px 0px #222;
-  -webkit-transition: border 0.2s ease;
-  -moz-transition: border 0.2s ease;
-  -o-transition: border 0.2s ease;
-  transition: border 0.2s ease;
+	-webkit-box-shadow: 2px 2px 11px 1px #222;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    2px 2px 11px 1px #222;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         2px 2px 11px 1px #222;
+  -webkit-transition: border 0.2s, box-shadow 0.2s;
+  -moz-transition: border 0.2s, box-shadow 0.2s;
+  -o-transition: border 0.2s, box-shadow 0.2s;
+  transition: border 0.2s, box-shadow 0.2s;
   min-height: 175px;
   max-height: 225px
 }
 
 .projectTitle {
 	color: #888;
-	font-size: 14px;
+	font-size: 13px;
 	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 15px;

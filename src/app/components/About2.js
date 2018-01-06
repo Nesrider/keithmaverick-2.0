@@ -13,14 +13,60 @@ export class About2 extends Component {
 
 		this.state = {
 			content: aboutContent,
-			showLog: false
+			showLog: false,
+			initResize: true
 		};
 
 		this.handleShowLogs = this.handleShowLogs.bind(this);
+
+		$(window).resize(() =>
+			this.resizeAboutPic()
+		);
+	}
+
+	componentDidMount() {
+		if (this.state.initResize) {
+			this.resizeAboutPic();
+		}
+
+		this.setState({
+			initResize: false
+		});
+	}
+
+	resizeAboutPic() {
+		if ($(window).width() > 1199) {
+			const leftSoftwareHeight = $('.leftSoftware').height();
+			const rightExperienceHeight = $('.rightExperience').height();
+			$('.aboutImg').height(rightExperienceHeight - (20 + leftSoftwareHeight));
+			$('#aboutPhoto').css({
+				'width': 'auto',
+				'position': 'absolute',
+				'transform': 'translate3d(-50%, -50%, 0)',
+				'-webkit-transform': 'translate3d(-50%,-50%,0)',
+				'-ms-transform': 'translate3d(-50%,-50%,0)',
+				'min-height': '100%'
+			});
+			$('.aboutImg').css('position', 'relative');
+		} else {
+			$('.aboutImg').css({
+				height: 'auto',
+				position: 'static'
+			});
+			$('#aboutPhoto').css({
+				'width': '100%',
+				'position': 'static',
+				'transform': 'none',
+				'-webkit-transform': 'none',
+				'-ms-transform': 'none',
+				'min-height': '0'
+			});
+		}
 	}
 
 	handleFadeIn() {
 		$('#aboutPhoto').fadeIn(200);
+		this.resizeAboutPic();
 	}
 
 	handleShowLogs() {
@@ -63,9 +109,9 @@ export class About2 extends Component {
 				<div className="aboutTextTitle">
 					<b>{item.Company}</b>, {item.Position} | {item.Time}
 				</div>
-				<div className="aboutTextDesc">
+				<p className="aboutTextDesc">
 					{item.Description}
-				</div>
+				</p>
 				{this.addNewLine(experienceLength, i)}
 			</div>)
 		);
@@ -91,23 +137,32 @@ export class About2 extends Component {
 						</div>
 					</div>
 					<div className="container containerDesc aboutText align-center">
-						<div className="row aboutBoxCol">
-							<div className="center-block">
-								<div className="aboutBoxTitle">
-									<b>Software Engineer</b>
+						<div className="row doubleBoxCol">
+							<div className="col col-lg-6 leftBox">
+								<div className="row aboutBoxCol leftSoftware">
+									<div className="center-block">
+										<div className="aboutBoxTitle">
+											<b>Software Engineer</b>
+										</div>
+										<p>
+											{content.Description}
+										</p>
+									</div>
 								</div>
-								<div>
-									{content.Description}
+								<div className="row aboutImg">
+									<img id="aboutPhoto" src={aboutPic} onLoad={this.handleFadeIn()}/>
 								</div>
 							</div>
-						</div>
-						<div className="row aboutBoxCol">
-							<div className="center-block">
-								<div className="aboutBoxTitle">
-									<b>Experience</b>
-								</div>
-								<div>
-									{experience}
+							<div className="col col-lg-6 rightBox">
+								<div className="row aboutBoxCol rightExperience">
+									<div className="center-block">
+										<div className="aboutBoxTitle">
+											<b>Experience</b>
+										</div>
+										<div>
+											{experience}
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -153,9 +208,9 @@ export class About2 extends Component {
 								<div className="aboutBoxTitle vertical-align-text">
 									<b>The Website v{logs[0].vers}</b>
 								</div>
-								<div>
+								<p>
 									{content.Website}
-								</div>
+								</p>
 								<div className="showLogButton activeBtn" onClick={this.handleShowLogs}>
 									{this.state.showLog ? "Hide Logs" : "Show Logs"}
 								</div>
@@ -165,9 +220,6 @@ export class About2 extends Component {
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="container aboutImg">
-					<img id="aboutPhoto" src={aboutPic} onLoad={this.handleFadeIn}/>
 				</div>
 			</div>
 		);

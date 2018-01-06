@@ -28,7 +28,7 @@ export class ProjectDescription extends Component {
 
 		return (
 			<div className="descriptionBox" style={{display: "initial"}}ref={this.containerAdd}>
-				<div className="descriptionBoxInner col col-xs-10 col-lg-8 center-block">
+				<div className="descriptionBoxInner col col-xs-9 col-lg-4 center-block">
 					<div className="ProjectTitle">
 						{imageObject.IMAGE_NAME}
 					</div>
@@ -39,7 +39,7 @@ export class ProjectDescription extends Component {
 						{imageObject.IMAGE_TOOL}
 					</div>
 					<div className="ProjectDescription">
-						{imageObject.IMAGE_DESCRIPTION}
+						<p>{imageObject.IMAGE_DESCRIPTION}</p>
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,25 @@
 export const logs = [
 	{
+		vers: "2.1.10",
+		date: "1/6/18",
+		logNote: "Updated about page and minor updates to subject pages"
+	},
+	{
+		vers: "2.1.9",
+		date: "12/16/17",
+		logNote: "Minor updates"
+	},
+	{
+		vers: "2.1.8",
+		date: "7/25/17",
+		logNote: "Added New Icons to Subject Pages"
+	},
+	{
+		vers: "2.1.7",
+		date: "7/22/17",
+		logNote: "Updated Buttons and Subject Headers"
+	},
+	{
 		vers: "2.1.6",
 		date: "7/18/17",
 		logNote: "Fixed sizing issues on mobile and larger screens"
