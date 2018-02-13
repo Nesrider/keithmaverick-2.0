@@ -138,16 +138,18 @@ export class ProjectImage extends Component {
 
 		const newCallback = () => {
 			$(".Subject").addClass("imagePopped");
+			$(".projects").height("43%");
 			callback();
 		};
 
-		TweenMax.fromTo(el, 0.4, {opacity: 0, height: "0vh"}, {opacity: 1, height: "57vh", onComplete: newCallback});
+		TweenMax.fromTo(el, 0.4, {opacity: 0, height: "0%"}, {opacity: 1, height: "57%", onComplete: newCallback});
 	}
 
 	componentWillLeave(callback) {
 		const el = this.container;
 		$(".Subject").removeClass("imagePopped");
-		TweenMax.fromTo(el, 0.4, {opacity: 1, height: "57vh"}, {opacity: 0, height: "0vh", onComplete: callback});
+		$(".projects").height("100%");
+		TweenMax.fromTo(el, 0.4, {opacity: 1, height: "57%"}, {opacity: 0, height: "0%", onComplete: callback});
 	}
 
 	containerAdd(container) {
@@ -163,9 +165,7 @@ export class ProjectImage extends Component {
 		return (
 			<div className="row projectImage" ref={this.containerAdd}>
 				<div className="col col-xs-11 col-sm-11 col-mid-7 col-lg-7 center-block">
-					<div className="imageSelect">
-						{image}
-					</div>
+					{image}
 				</div>
 				<div className="description" onClick={this.handleRemoveInfo}>
 					<TransitionGroup>

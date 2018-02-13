@@ -1,5 +1,10 @@
 export const logs = [
 	{
+		vers: "2.1.11",
+		date: "2/10/18",
+		logNote: "Fixed Several Bugs"
+	},
+	{
 		vers: "2.1.10",
 		date: "1/6/18",
 		logNote: "Updated about page and minor updates to subject pages"

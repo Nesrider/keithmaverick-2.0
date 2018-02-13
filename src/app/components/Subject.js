@@ -16,11 +16,19 @@ export class Subject extends Component {
 			subImages: null,
 			numPerRow: 4,
 			imageHeight: '',
-			imageContainerHeight: '57vh',
+			imageContainerHeight: '57%',
 			curImage: undefined
 		};
 
 		this.cloneE = this.cloneE.bind(this);
+
+		$(window).resize(() =>
+			this.resizeSubject()
+		);
+	}
+
+	resizeSubject() {
+		$('.Subject').height($(window).height() - $('header').height());
 	}
 
 	setImages(images) {
@@ -57,6 +65,8 @@ export class Subject extends Component {
 	// }
 
 	componentDidMount() {
+		this.resizeSubject();
+
 		const getImages = getImagesBySubId +
 		this.props.subjectID;
 
@@ -207,21 +217,23 @@ export class Subject extends Component {
 
 		return (
 			<div className="container">
-				<div className="container imageContainer">
+				<div className="container Subject">
 					<TransitionGroup>
 						{image}
 					</TransitionGroup>
-				</div>
-				<div className="container Subject">
-					<div className="row subjectName">
-						<div className="col align-center">
-							<div className="subjectNameLabel">
-								{this.props.subjectName}
+					<div className="projects">
+						<div className="row subjectName">
+							<div className="col align-center">
+								<div className="subjectNameLabel">
+									{this.props.subjectName}
+								</div>
 							</div>
 						</div>
-					</div>
-					<div className="align-center">
-						{projects}
+						<div className="projectButtons align-center">
+							{projects}
+						</div>
+						<div className="bottom-padding">
+						</div>
 					</div>
 				</div>
 			</div>

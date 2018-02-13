@@ -30,7 +30,7 @@ export default class VideoPlayer extends Component {
 		const videoPoster = this.props.poster;
 
 		const videoHtml = (
-			<div>
+			<div className="videoSelect">
 				<link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet"/>
 				<video id={videoId} className="videoProject video-js vjs-default-skin" controls preload="auto" poster={videoPoster}>
 					<source src={videoSource} type="video/mp4"/>

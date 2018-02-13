@@ -149,7 +149,7 @@ header .fa {
 
 .navPop {
 	background-color: #444;
-	height: 100vh;
+	height: 100%;
 	width: 175px;
 	position: fixed;
 	z-index: 99;
@@ -175,8 +175,8 @@ header .fa {
 }
 
 .navBackground {
-	height: 100vh;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
 	background-color: black;
 	opacity: 0;
 	position: absolute;

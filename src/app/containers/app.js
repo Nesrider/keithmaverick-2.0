@@ -65,8 +65,6 @@ export class app extends Component {
 					<ReactCSSTransitionGroup component="div" transitionName={this.state.transitionType} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
 						{React.cloneElement(this.props.children, {key: segment})}
 					</ReactCSSTransitionGroup>
-					<div className="headerMargin">
-					</div>
 				</div>
 			</div>
 		);

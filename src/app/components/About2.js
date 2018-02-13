@@ -117,107 +117,105 @@ export class About2 extends Component {
 		);
 
 		return (
-			<div className="container aboutSub">
-				<div className="container aboutPage">
-					<div className="container containerName ">
-						<div className="row">
-							<div className="col aboutName aboutBox">
-								<div className="align-center">
-									<div className="aboutMainName">
-										{content.Name}
+			<div className="container aboutPage">
+				<div className="container containerName ">
+					<div className="row">
+						<div className="col aboutName aboutBox">
+							<div className="align-center">
+								<div className="aboutMainName">
+									{content.Name}
+								</div>
+								<div className="aboutSubName aboutEduName">
+									{content.School}
+								</div>
+								<div className="aboutSubName aboutMajorName">
+									{content.Major}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="container containerDesc aboutText align-center">
+					<div className="row doubleBoxCol">
+						<div className="col col-lg-6 leftBox">
+							<div className="row aboutBoxCol leftSoftware">
+								<div className="center-block">
+									<div className="aboutBoxTitle">
+										<b>Software Engineer</b>
 									</div>
-									<div className="aboutSubName aboutEduName">
-										{content.School}
+									<p>
+										{content.Description}
+									</p>
+								</div>
+							</div>
+							<div className="row aboutImg">
+								<img id="aboutPhoto" src={aboutPic} onLoad={this.handleFadeIn()}/>
+							</div>
+						</div>
+						<div className="col col-lg-6 rightBox">
+							<div className="row aboutBoxCol rightExperience">
+								<div className="center-block">
+									<div className="aboutBoxTitle">
+										<b>Experience</b>
 									</div>
-									<div className="aboutSubName aboutMajorName">
-										{content.Major}
+									<div>
+										{experience}
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div className="container containerDesc aboutText align-center">
-						<div className="row doubleBoxCol">
-							<div className="col col-lg-6 leftBox">
-								<div className="row aboutBoxCol leftSoftware">
-									<div className="center-block">
-										<div className="aboutBoxTitle">
-											<b>Software Engineer</b>
-										</div>
-										<p>
-											{content.Description}
-										</p>
-									</div>
+					<div className="row doubleBoxCol">
+						<div className="col col-lg-6 leftBox">
+							<div className="aboutSkills aboutBoxCol">
+								<div className="aboutBoxTitle">
+									<b>Programming</b>
 								</div>
-								<div className="row aboutImg">
-									<img id="aboutPhoto" src={aboutPic} onLoad={this.handleFadeIn()}/>
-								</div>
-							</div>
-							<div className="col col-lg-6 rightBox">
-								<div className="row aboutBoxCol rightExperience">
-									<div className="center-block">
-										<div className="aboutBoxTitle">
-											<b>Experience</b>
-										</div>
-										<div>
-											{experience}
-										</div>
-									</div>
-								</div>
+								<table>
+									<tbody>
+										{tech}
+									</tbody>
+								</table>
 							</div>
 						</div>
-						<div className="row doubleBoxCol">
-							<div className="col col-lg-6 leftBox">
-								<div className="aboutSkills aboutBoxCol">
-									<div className="aboutBoxTitle">
-										<b>Programming</b>
-									</div>
-									<table>
-										<tbody>
-											{tech}
-										</tbody>
-									</table>
+						<div className="col col-lg-6 rightBox">
+							<div className="aboutSkills aboutBoxCol">
+								<div className="aboutBoxTitle">
+									<b>Design</b>
 								</div>
-							</div>
-							<div className="col col-lg-6 rightBox">
-								<div className="aboutSkills aboutBoxCol">
-									<div className="aboutBoxTitle">
-										<b>Design</b>
-									</div>
-									<table>
-										<tbody>
-											{design}
-										</tbody>
-									</table>
-									<br/>
-									<br/>
-									<br/>
-									<div className="aboutBoxTitle">
-										<b>Hobbies</b>
-									</div>
-									<table>
-										<tbody>
-											{hobbies}
-										</tbody>
-									</table>
+								<table>
+									<tbody>
+										{design}
+									</tbody>
+								</table>
+								<br/>
+								<br/>
+								<br/>
+								<div className="aboutBoxTitle">
+									<b>Hobbies</b>
 								</div>
+								<table>
+									<tbody>
+										{hobbies}
+									</tbody>
+								</table>
 							</div>
 						</div>
-						<div className="row aboutBoxCol">
-							<div className="center-block">
-								<div className="aboutBoxTitle vertical-align-text">
-									<b>The Website v{logs[0].vers}</b>
-								</div>
-								<p>
-									{content.Website}
-								</p>
-								<div className="showLogButton activeBtn" onClick={this.handleShowLogs}>
-									{this.state.showLog ? "Hide Logs" : "Show Logs"}
-								</div>
-								<TransitionGroup>
-									{showLogs}
-								</TransitionGroup>
+					</div>
+					<div className="row aboutBoxCol">
+						<div className="center-block">
+							<div className="aboutBoxTitle vertical-align-text">
+								<b>The Website v{logs[0].vers}</b>
 							</div>
+							<p>
+								{content.Website}
+							</p>
+							<div className="showLogButton activeBtn" onClick={this.handleShowLogs}>
+								{this.state.showLog ? "Hide Logs" : "Show Logs"}
+							</div>
+							<TransitionGroup>
+								{showLogs}
+							</TransitionGroup>
 						</div>
 					</div>
 				</div>

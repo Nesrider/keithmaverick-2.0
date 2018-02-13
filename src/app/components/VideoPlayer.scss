@@ -1,8 +1,15 @@
 .videoProject {
 	width: auto;
-	height: 52vh;
-	margin-top: 2.5vh;
+	height: 90%;
 	border-radius: 5px;
+	top: 50%;
+	transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
+.videoSelect {
+	height: 100%;
 }
 
 .vjs-tech {
@@ -30,7 +37,7 @@
 .vjs-default-skin:hover .vjs-big-play-button,
 .vjs-default-skin .vjs-big-play-button:focus {
 	background-color: #505050 !important;
-  background-color: rgba(249, 39, 85, 1) !important; 
+  background-color: rgba(249, 39, 85, 1) !important;
   border-radius: 5px;
 }
 

@@ -1,24 +1,23 @@
 .descriptionBox {
 	background-color: rgba(10,10,10,0.9);
-	height: 57vh;
+	height: 100%;
 	width: 100%;
 	top: 0;
 	left: 0;
 	position: absolute;
-	padding: 12vh 0;
 	color: #999;
 	overflow: scroll;
 }
 
 .descriptionBoxInner {
 	float: none;
+	top: 25%;
 }
 
 .ProjectTitle {
 	color: #bbb;
 	font-size: 30px;
 	margin-bottom: 5px;
-	font-family: Aqua;
 	text-transform: uppercase;
 }
 
