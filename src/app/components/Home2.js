@@ -5,22 +5,6 @@ import $ from 'jquery';
 
 export class Home2 extends Component {
 
-	constructor(props) {
-		super(props);
-
-		$(window).resize(() =>
-			this.resizeHome()
-		);
-	}
-
-	resizeHome() {
-		$('.Home2').height($(window).height() - $('header').height());
-	}
-
-	componentDidMount() {
-		this.resizeHome();
-	}
-
 	handleFadeIn() {
 		$('#home_back').fadeIn(200);
 	}

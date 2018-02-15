@@ -3,6 +3,7 @@ import {Header} from '../components/Header';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './app.scss';
 import {routes} from '../constants/routeConstants';
+import $ from 'jquery';
 
 export class app extends Component {
 
@@ -15,6 +16,19 @@ export class app extends Component {
 		};
 
 		this.onhandleChangeSub = this.onhandleChangeSub.bind(this);
+
+		$(window).resize(() =>
+			this.resizePageViewer()
+		);
+	}
+
+	componentDidMount() {
+		this.resizePageViewer();
+	}
+
+	resizePageViewer() {
+		console.log("resizing page viewer");
+		$('.pageViewer').height($(window).height() - $('header').height());
 	}
 
 	getIndex(segment) {
@@ -61,11 +75,9 @@ export class app extends Component {
 		return (
 			<div>
 				<Header changeSub={this.onhandleChangeSub} curSub={this.props.subject} parentSub={this.updateSubjects}/>
-				<div className="pageViewer">
-					<ReactCSSTransitionGroup component="div" transitionName={this.state.transitionType} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
-						{React.cloneElement(this.props.children, {key: segment})}
-					</ReactCSSTransitionGroup>
-				</div>
+				<ReactCSSTransitionGroup component="div" className="pageViewer" transitionName={this.state.transitionType} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
+					{React.cloneElement(this.props.children, {key: segment})}
+				</ReactCSSTransitionGroup>
 			</div>
 		);
 	}

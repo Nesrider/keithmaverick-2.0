@@ -16,9 +16,8 @@
 	height: 57%;
 	background-color: #181818;
 	overflow: hidden;
-	margin-left: -30px;
-	margin-right: -30px;
 	position: relative;
+	box-shadow: 0 6px 17px rgba(0, 0, 0, 0.3);
 }
 
 .projectImage > .col {
@@ -70,11 +69,11 @@
 }
 
 .left-button {
-	left: 30px;
+	left: 35px;
 }
 
 .right-button {
-	right: 30px;
+	right: 35px;
 }
 
 .arrowIcon {
@@ -145,4 +144,14 @@
 
 .fa-times-thin:before {
   content: '\00d7';
+}
+
+.imageLoader {
+	position: absolute;
+	top: 50%;
+  left: 50%;
+	color: #eee;
+  transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%,-50%,0);
+  -ms-transform: translate3d(-50%,-50%,0);
 }

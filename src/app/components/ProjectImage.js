@@ -19,13 +19,27 @@ export class ProjectImage extends Component {
 		this.handleRemoveInfo = this.handleRemoveInfo.bind(this);
 		this.state = {
 			infoClicked: false,
-			expanded: false
+			expanded: false,
+			loading: true
 		};
 	}
 
 	fadeIn() {
 		const image = this.props.imageObject;
-		return () => $(`#img${image.IMAGE_ID}`).fadeIn(200);
+		const projectImage = this;
+		return function () {
+			console.log("fading in");
+			projectImage.setState({
+				loading: false
+			});
+			$(`#img${image.IMAGE_ID}`).fadeIn(200);
+		};
+	}
+
+	componentWillReceiveProps() {
+		this.setState({
+			loading: true
+		});
 	}
 
 	buildVideo() {
@@ -49,7 +63,24 @@ export class ProjectImage extends Component {
 
 		return (
 			<div className="projectImageWrapper">
-				<img id={imgId} src={image.IMAGE_SOURCE} onLoad={this.fadeIn()}/>
+				<img id={imgId} src={image.IMAGE_SOURCE} onLoad={this.fadeIn()} onChange={this.fadeIn()}/>
+			</div>
+		);
+	}
+
+	buildLoader() {
+		const image = this.props.imageObject;
+
+		if (this.state.loading && image.IMAGE_TYPE !== 2) {
+			return (
+				<div className="imageLoader">
+					<i className="fa fa-spin fa-3x fa-circle-o-notch" aria-hidden="true"></i>
+				</div>
+			);
+		}
+
+		return (
+			<div className="imageLoader">
 			</div>
 		);
 	}
@@ -72,7 +103,6 @@ export class ProjectImage extends Component {
 	buildPrev() {
 		const index = this.props.index;
 		const curLocation = this.props.location;
-		console.log(index);
 
 		if (index === 0) {
 			return (<div></div>);
@@ -91,7 +121,6 @@ export class ProjectImage extends Component {
 		const index = this.props.index;
 		const maxIndex = this.props.maxIndex;
 		const curLocation = this.props.location;
-		console.log(index);
 
 		if (index === maxIndex) {
 			return (<div></div>);
@@ -161,12 +190,14 @@ export class ProjectImage extends Component {
 		const description = this.buildDescription();
 		const prev = this.buildPrev();
 		const next = this.buildNext();
+		const loader = this.buildLoader();
 
 		return (
 			<div className="row projectImage" ref={this.containerAdd}>
 				<div className="col col-xs-11 col-sm-11 col-mid-7 col-lg-7 center-block">
 					{image}
 				</div>
+				{loader}
 				<div className="description" onClick={this.handleRemoveInfo}>
 					<TransitionGroup>
 						{description}
