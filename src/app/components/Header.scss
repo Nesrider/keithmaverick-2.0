@@ -1,6 +1,6 @@
 @media(max-width:576px){
 	h2 {
-		font-size: 18px;
+		font-size: 18px !important;
 	}
 
 	.tab {
@@ -11,7 +11,7 @@
 
 @media(max-width:768px){
 	h2 {
-		font-size: 19px;
+		font-size: 19px !important;
 	}
 
 	.tab {
@@ -55,7 +55,11 @@
 }
 
 .tab {
-	margin-top: 15px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 19%;
 }
 
 .tab:hover, .fa:hover, .home:hover{
@@ -107,12 +111,12 @@ header {
 }
 
 header h6 {
-	font-size: 13px;
+	font-size: 11px;
 }
 
 header .fa {
 	margin-top: 5px;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .socialMedia {
@@ -226,4 +230,6 @@ header .fa {
 
 .lgSub {
 		display: block;
+		margin-bottom: 0px;
+		top: 3px;
 	}

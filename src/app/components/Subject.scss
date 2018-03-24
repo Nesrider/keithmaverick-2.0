@@ -34,8 +34,8 @@ hr {
 	text-transform: uppercase;
 /*	margin-top: 20px;*/
 	margin-bottom: 25px;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 16px;
+	padding-bottom: 16px;
 	background-color: #242424;
 	// letter-spacing: 0.2px;
 	// height: 145px;
@@ -43,7 +43,7 @@ hr {
 
 .projectName {
 	color: #aaa;
-	font-size: 17px;
+	font-size: 14px;
 	font-weight: 500;
 	margin-top: 20px;
 }
@@ -133,6 +133,7 @@ img.subjectIcon {
 .subjectNameLabel {
 	display: inline-block;
 	vertical-align: middle;
+	font-size: 11px;
 	// position: absolute;
 	// bottom: -23px;
 }

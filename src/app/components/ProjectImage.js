@@ -28,7 +28,6 @@ export class ProjectImage extends Component {
 		const image = this.props.imageObject;
 		const projectImage = this;
 		return function () {
-			console.log("fading in");
 			projectImage.setState({
 				loading: false
 			});
@@ -36,10 +35,15 @@ export class ProjectImage extends Component {
 		};
 	}
 
-	componentWillReceiveProps() {
-		this.setState({
-			loading: true
-		});
+	componentWillReceiveProps(nextProps) {
+		const curImageId = this.props.imageObject.IMAGE_ID;
+		const nextImageId = nextProps.imageObject.IMAGE_ID;
+
+		if (curImageId !== nextImageId) {
+			this.setState({
+				loading: true
+			});
+		}
 	}
 
 	buildVideo() {
@@ -111,7 +115,7 @@ export class ProjectImage extends Component {
 		return (
 			<div className="arrow left-button">
 				<Link to={`${curLocation}/${index - 1}`}>
-					<i className="fa fa-chevron-left fa-lg arrowIcon" aria-hidden="true"></i>
+					<i className="fa fa-chevron-left fa-sm arrowIcon" aria-hidden="true"></i>
 				</Link>
 			</div>
 		);
@@ -129,7 +133,7 @@ export class ProjectImage extends Component {
 		return (
 			<div className="arrow right-button">
 				<Link to={`${curLocation}/${index + 1}`}>
-					<i className="fa fa-chevron-right fa-lg arrowIcon" aria-hidden="true"></i>
+					<i className="fa fa-chevron-right fa-sm arrowIcon" aria-hidden="true"></i>
 				</Link>
 			</div>
 		);
@@ -205,11 +209,11 @@ export class ProjectImage extends Component {
 				</div>
 				<div className="close right-button">
 					<Link to={this.props.location}>
-						<i className="fa fa-times-thin fa-lg closeIcon" aria-hidden="true"></i>
+						<i className="fa fa-times-thin fa-sm closeIcon" aria-hidden="true"></i>
 					</Link>
 				</div>
 				<div className="info left-button" onClick={this.handleInfo}>
-					<i className="fa fa-info-circle fa-2x infoIcon" aria-hidden="true"></i>
+					<i className="fa fa-info-circle fa-2x fa-sm infoIcon" aria-hidden="true"></i>
 				</div>
 				{prev}
 				{next}

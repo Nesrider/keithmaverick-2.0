@@ -27,7 +27,6 @@ export class app extends Component {
 	}
 
 	resizePageViewer() {
-		console.log("resizing page viewer");
 		$('.pageViewer').height($(window).height() - $('header').height());
 	}
 

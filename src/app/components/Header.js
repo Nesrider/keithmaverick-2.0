@@ -204,4 +204,3 @@ export class Header extends Component {
 Header.propTypes = {
 	changeSub: React.PropTypes.func
 };
-

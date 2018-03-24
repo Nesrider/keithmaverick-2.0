@@ -1,4 +1,4 @@
-export const aboutPic = "images/prof2.jpg";
+export const aboutPic = "https://s3.amazonaws.com/www.keithmaverick.com/images/prof2.jpg";
 
 export const aboutContent = {
 	Name: "Keith Maverick Yeung",
@@ -7,7 +7,7 @@ export const aboutContent = {
 	Description: `A software engineer who utilizes design principles and project
 	management techniques to engineer applications for scalibility, responsiveness,
 	and efficiency. With many side projects to experiment with new technology and
-	exstensive experience working with industry professionals, I 
+	exstensive experience working with industry professionals, I
 	intend to build software for a large consumer audience.`,
 	Website: `This website demonstrates a fullstack build, utilitizing React for
 	the Front-End, Python Flask for the Back-end and MySql Database. The Front-End is hosted statically on a AWS S3 Bucket and the Back-end

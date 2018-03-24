@@ -1,3 +1,11 @@
+@media(max-width:576px){
+	.projectBlockImg {
+	  min-height: 165px !important;
+	  max-height: 210px !important;
+	}
+}
+
+
 .projectBlock img {
 	width: 100%;
 	min-height: 100%;
@@ -36,13 +44,13 @@
   -moz-transition: border 0.2s, box-shadow 0.2s;
   -o-transition: border 0.2s, box-shadow 0.2s;
   transition: border 0.2s, box-shadow 0.2s;
-  min-height: 175px;
-  max-height: 225px
+  min-height: 145px;
+  max-height: 180px
 }
 
 .projectTitle {
 	color: #888;
-	font-size: 13px;
+	font-size: 11px;
 	padding-right: 15px;
 	padding-top: 10px;
 	padding-bottom: 15px;
